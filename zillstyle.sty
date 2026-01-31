@@ -16,7 +16,13 @@
 \usepackage{marginnote}
 \usepackage{caption}
 \usepackage{graphicx}
-
+\usepackage{bm} % 使用 \bm{v} 产生加粗矢量
+\usepackage{siunitx}
+\sisetup{
+  separate-uncertainty = true,
+  inter-unit-product = \ensuremath{\cdot},
+  tight-spacing = true
+}
 \tcbuselibrary{skins, breakable}
 
 % --- 颜色定义 ---
@@ -94,6 +100,19 @@
 }{
     \hfill\ensuremath{\color{zillOrange}\blacksquare}
     \par
+}
+
+% --- 4. Properties (蓝色方框，用于总结性质/公式) ---
+\newtcolorbox{properties}{
+    enhanced, breakable,
+    colback=zillPropBg, colframe=zillBlue,
+    arc=2pt, boxrule=1pt,
+    fonttitle=\bfseries\sffamily, coltitle=zillBlue,
+    title=PROPERTIES, 
+    attach title to upper,
+    after title={\vspace{0.5em}\par\hrule height 0.5pt \vspace{0.5em}},
+    left=3mm, right=3mm, top=3mm, bottom=3mm,
+    before skip=18pt, after skip=18pt
 }
 
 % --- 4. 章节目标 (Objectives) ---

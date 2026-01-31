@@ -214,7 +214,77 @@
      \[
      (g\circ f)a=a,\quad(f\circ g)b=b
      \]
-     我们称$f$和$g$互为反函数。
+     我们称$f$和$g$互为反函数，符号记作$g(x)=f^{-1}(x)$
 \end{definition}
+\leftnote[-60pt]{
+    这里我们需要格外注意反函数的定义域和值域问题，事实上一个具有反函数的函数一定是单射的
+}
+\begin{example}[(自由落体的“逆向思考”)]
+已知自由落体下落的高度$h(t)$和时间$t$的函数关系为：
+\[
+h(t)=\frac{1}{2}gt^2\]
+在这个过程中，时间$t$和下落高度的函数关系为：
+\[
+t=f(h)=\sqrt{\frac{2h}{g}}\]
+则函数$h(t)$和函数$f(h)$是一对反函数。其中：
+\begin{itemize}
+    \item $h(t)$的定义域是下落的时间（非负实数），值域是下落的高度（非负实数）
+    \item $f(h)$的定义域是下落的高度（非负实数），值域是下落的时间（非负实数）
+\end{itemize}
+\end{example}
+\begin{properties}
+    \begin{enumerate}
+        \item \textbf{图像对称}:图像$y=f(x)$与其反函数 $y=f^{-1}(x)$ 的图像，关于直线 $y=x$ 对称
+        \item \textbf{奇偶性关联}：
+            \begin{itemize}[topsep=-\baselineskip, nosep]
+                                \item 若 $f(x)$ 是奇函数且存在反函数，则 $f^{-1}(x)$ 同样是一个奇函数
+                                \item 若 $f(x)$ 是一个偶函数，则在其对称区间上不存在反函数
+            \end{itemize}
+        \item \textbf{复合函数性质}:对于互为反函数的 $f$ 和 $f^{-1}$ ,有 $f\circ f^{-1}=f^{-1}\circ f=\text{id}$，id表示恒等函数
+    \end{enumerate}
+\end{properties}
+\begin{exercises}{1.2}
 
+    \noindent\textit{在问题 1-5 中，探讨函数的奇偶性与单调性及其物理含义。}
+    \begin{exerciseList}
+        \item 判断函数 $f(x) = \frac{1}{x} + x^3$ 的奇偶性，并说明其在 $(0, +\infty)$ 上的单调性。
+        \item \textbf{弹簧弹性势能}：公式为 $E_p(x) = \frac{1}{2}kx^2$。若考虑位移 $x$ 可正可负（代表压缩或拉伸）：
+            \begin{enumerate}
+                \item 证明 $E_p(x)$ 是偶函数。
+                \item 解释这个结论的物理意义（提示：关于平衡位置对称）。
+            \end{enumerate}
+        \item 已知函数 $f(x)$ 是定义在 $\mathbb{R}$ 上的奇函数。若当 $x \in (0, 1)$ 时 $f(x) = 2x + 1$，求 $f(x)$ 在 $(-1, 0)$ 上的解析式。
+        \item 观察函数 $f(x) = \frac{1}{x^2+1}$。通过分析 $x^2+1$ 的性质，判断 $f(x)$ 的最大值及对应的 $x$ 值。
+        \item 物理中的**静电力**公式为 $F(r) = k\frac{q_1q_2}{r^2}$。若电荷量固定，分析该函数在 $r \in (0, +\infty)$ 上的单调性。
+    \end{exerciseList}
+
+    \noindent\textit{在问题 6-11 中，通过平移与对称变换处理物理图像。}
+    \begin{exerciseList}
+        \item 将抛物线 $y = x^2$ 整体向左平移 2 个单位，再向上平移 3 个单位，写出新的函数解析式。
+        \item \textbf{高度偏移}：一架无人机从海拔 $100\text{m}$ 的平台上起飞，其相对于平台的高度为 $h(t) = 5t^2$。请写出无人机相对于海平面高度 $H(t)$ 的函数。这属于哪种平移？
+        \item 考虑正弦波形 $y = \sin x$。若将其向右平移 $\pi/2$ 个单位，得到的解析式是什么？它与 $\cos x$ 的图像有什么关系？
+        \item \textbf{波动预演}：若波形 $f(x) = x^2$ 以 $v = \qty{2}{m/s}$ 的速度向右传播，写出 $t = \qty{5}{s}$ 时的波形解析式（提示：$x \to x-vt$）。
+        \item 证明：任何函数 $y = f(x)$ 关于 $x$ 轴对称后的图像对应的函数一定是 $-f(x)$。
+        \item 将函数 $y = \sqrt{x}$ 关于 $y$ 轴对称，并说明所得新函数的定义域。
+    \end{exerciseList}
+
+    \noindent\textit{在问题 12-15 中，练习复合函数的拆解与代入。}
+    \begin{exerciseList}
+        \item 已知 $f(x) = 2x - 1$，$g(x) = x^2$。分别计算复合函数 $f(g(x))$ 和 $g(f(x))$。它们相等吗？
+        \item \textbf{功率链}：一台电动机的输出功率 $P = I^2 R$。若电流随时间变化为 $I(t) = I_0 \sin(\omega t)$，请写出功率随时间变化的复合函数 $P(t)$。
+        \item 设 $u(x) = 1 - x$，$y(u) = \frac{1}{1-u}$。求 $y$ 关于 $x$ 的复合函数，并简化结果。
+        \item 物理中，圆周运动的向心加速度 $a = \frac{v^2}{r}$。若速度随时间线性增加 $v = v_0 + kt$，写出 $a$ 随时间 $t$ 变化的函数。
+    \end{exerciseList}
+
+    \noindent\textit{在问题 16-20 中，求解反函数并探讨其物理应用。}
+    \begin{exerciseList}
+        \item 求函数 $f(x) = \frac{2x+1}{x-1}$ 的反函数。
+        \item \textbf{动量与速度}：动量公式为 $p = mv$。若已知动量 $p$，求速度 $v$ 关于 $p$ 的反函数。
+        \item \textbf{折射定律}：已知 $y = \sin \theta$。在物理实验中，我们测得了 $y$ 的值。请问如何表示 $\theta$？（注：只需说明这是反函数关系）。
+        \item 考虑函数 $f(x) = x^2$。为什么在整个实数集 $\mathbb{R}$ 上它没有反函数？要使其拥有反函数，我们需要对 $x$ 做什么样的限制？
+        \item \textbf{综合思考题}：证明如果一个函数 $f(x)$ 既是奇函数又存在反函数 $f^{-1}(x)$，则其反函数也一定是奇函数。（提示：从 $f(f^{-1}(-x))$ 出发）。
+    \end{exerciseList}
+
+\end{exercises}
+\section{基本初等函数}
 \end{document}
