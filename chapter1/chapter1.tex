@@ -1,49 +1,220 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter{Introduction to ZillStyleBook}
-\begin{objectives}
-    \begin{enumerate}
-        \item 了解Zillstyle的使用方法
-        \item 了解环境的大概配置
-    \end{enumerate}
-\end{objectives}
-
-\section{章节标题}
-    \begin{definition}{定理名称}
-    Zillstyle是参考David.D.Zill的微分方程一书而编写的latex文档模版，来让受众可以更轻松的进行文档排版
+\chapter{Preliminaries}
+    \begin{Obje}
+        在深入研究微积分学之前，我们需要总结一些基本的数学概念和符号，这一章的知识将会在后续章节中详细讨论
+        \begin{enumerate}
+            \item 了解基本的数学符号和数学概念
+            \item 掌握函数和基本函数的性质
+            \item 掌握解析几何的初等知识
+            \item 了解向量的基本含义和运算法则
+        \end{enumerate}
+    \end{Obje}
+\section{基本符号和概念}
+    \begin{definition}{集合}
+        集合是数学中最基本的概念，包含着一类具有相似性质的对象。集合中的对象成为元素，通常用小写字母表示，集合本身通常用大写元素字母表示。
     \end{definition}
 
-    \begin{properties}
-        目前文档配置的环境有：
-        \begin{enumerate}
-            \item 目录前言(objectives)：让用户可以设置每一章的使用目标
-            \item 定义(definition)：让用户可以完善环境
-            \item 性质(properties):提供性质环境书写性质
-            \item 定理(theorem):帮助用户配置定理环境
-        \end{enumerate}
-        
-    \end{properties}
-
-    \begin{theorem}{定理名称}
-        定理环境非常的清晰，十分好用个人感觉
-    \end{theorem}
-    
     \begin{example}
-        这是一个例子
+        我们来考虑这样一个学校，其中老师和学生分别构成两个集合。设集合$T$表示所有的老师，集合$S$表示所有的学生：
+        \[
+            T=\{ \text{Chinese 1,Chinese 2,Math 1,Physics 1,English 1}\}
+        \]
+        \[
+            S=\{\text{Tom,Charlie,Mike,Michael}\}
+        \]
+    \end{example}
+    在学校中，我们可以看到老师和学生之间有一种特殊的关系，这种关系将两个集合联系起来。我们将这样的关系成为“二元关系”
+    \begin{definition}{二元关系}
+        设$A$和$B$是两个集合，$R$是$A$和$B$之间的一个二元关系，如果对于每一个$a\in A$，都存在一个$b\in B$，使得$(a,b)\in R$，则称$R$为从$A$到$B$的二元关系。
+    \end{definition}
+    \begin{example}
+        在上面的学校例子中，我们可以定义一个二元关系$R$，表示老师与学生之间的指导关系。例如，Chinese 1老师指导Tom和Charlie，Math 1老师指导Mike和Michael。则有：
+        \[
+            R=\{(\text{Chinese 1}, \text{Tom}), (\text{Chinese 1}, \text{Charlie}), (\text{Math 1}, \text{Mike}), (\text{Math 1}, \text{Michael})\}
+        \]
+    \end{example}
+    我们来考虑一种特殊的二元关系，对于每一个$a\in A$，都存在唯一的$b\in B$，使得$(a,b)\in R$，则称$R$为从$A$到$B$的映射，或者函数。
+    \begin{definition}{函数}
+        设$A$和$B$是两个集合，$f$是$A$到$B$的一个映射，如果对于每一个$a\in A$，都存在唯一的$b\in B$，使得$(a,b)\in f$，则称$f$为从$A$到$B$的函数，记作$f:A\to B$，并称$b=f(a)$为$a$在$f$下的像。
+    \end{definition}
+    \begin{example}
+        在上面的学校例子中，我们可以定义一个函数$f$，表示每个学生对应的指导老师。例如，Tom和Charlie的指导老师是Chinese 1，Mike和Michael的指导老师是Math 1。则有：
+        \[
+            f(\text{Tom})=\text{Chinese 1}, \quad f(\text{Charlie})=\text{Chinese 1}, \quad f(\text{Mike})=\text{Math 1}, \quad f(\text{Michael})=\text{Math 1}
+        \]
+    \end{example}
+    
+    在这里，对于$A$和$B$之间的函数$f:A\to B$，我们称$A$为定义域，$B$为陪域，$f(A)$为$f$的值域。
+    
+    在实际生活中，我们常常会发现一个变量的值依赖于另一个变量的值：
+        \begin{itemize}
+            \item 水的沸点依赖于海拔的高度
+            \item 人口的增长依赖于出生率
+        \end{itemize}
+    
+    在上述的情形中，一个变量的值常常取决于另外一个变量的值，水的沸点$b$依赖于海拔高度$h$。我们可以利用函数来表达他们，将$b$称之为\textbf{因变量}，$h$称之为\textbf{自变量}
+    \begin{example}\textbf
+        已知圆的面积$A$依赖于圆的半径$r$，则可以用函数表示为$A=f(r)$
+        \[
+            A=\pi r^2
+        \]
+    这个过程中我们可以知道：
+        \begin{itemize}
+            \item 函数的值域为所有非负实数。定义域是所有可能的半径的集合
+            \item 因变量是圆的面积$A$,自变量是圆的半径$r$
+        \end{itemize}
     \end{example}
 
-    \begin{exercises}{1}
+    \leftnote[-90pt]{将函数想象为一个机器也有助于理解这一概：将自变量input到机器中，经过函数（机器）的处理，会output出唯一一个值——因变量。}
     
-    % 这里写题目的要求（通常是斜体）
-    \noindent\textit{In Problems 1--4, determine the order of the given differential equation.}
 
-    % 开启题目列表
+    最后，我们需要了解一些详细的数学符号：
+    \begin{itemize}
+        \item 实数集$\mathbb{R}$：表示所有实数的集合
+        \item 自然数集$\mathbb{N}$：表示所有自然数的集合
+        \item 整数集$\mathbb{Z}$：表示所有整数的集合
+        \item 有理数集$\mathbb{Q}$：表示所有有理数的集合
+    \end{itemize}
+\begin{exercises}{1.1}    
+    % 这里写题目的要求（通常是斜体）
+    \noindent\textit{在问题1-3中，请根据题目描述设定集合，并显式地写出二元关系 $R$ 中的部分元素。}
     \begin{exerciseList}
-        \item $y'' + 5y' + 6y = 0$
-        \item $\displaystyle \frac{d^4y}{dx^4} + \frac{d^2y}{dx^2} = \cos x$
-        \item $(1-x)y'' - 4xy' + 5y = \cos x$
-        \item $x^3 y''' - x^2 y'' + 4xy' - 3y = 0$
+        \item 将一些水果设定为集合 $F = \{\text{苹果, 香蕉, 葡萄}\}$，将一些颜色设定为集合 $C = \{\text{红色, 黄色, 紫色, 绿色}\}$。定义一个“具有该颜色”的二元关系 $R$。
+        \item 将国家设定为集合 $N = \{\text{中国, 日本, 英国, 法国}\}$，将洲设定为集合 $S = \{\text{亚洲, 欧洲, 非洲}\}$。定义一个“属于该洲”的二元关系 $R$。
+        \item 将一些实数设定为集合 $A = \{-2, -1, 0, 1, 2\}$，集合 $B = \{0, 1, 4\}$。定义一个“平方关系” $R$，即 $(a, b) \in R$ 当且仅当 $a^2 = b$。
     \end{exerciseList}
-    \end{exercises}
+
+    \noindent\textit{在问题4-6中，判断所给出的二元关系是否构成“从 $A$ 到 $B$ 的函数”，并说明理由。}
+    \begin{exerciseList}
+        \item 集合 $A$ 为平面上所有的三角形，集合 $B$ 为所有的正实数。二元关系 $f$ 定义为：每个三角形对应它的面积。
+        \item 集合 $A$ 为所有的实数 $\mathbb{R}$，集合 $B$ 也是 $\mathbb{R}$。二元关系 $f$ 定义为：$f = \{(x, y) \mid y^2 = x\}$。
+        \item 集合 $A$ 为某物理实验室中的所有温度计，集合 $B$ 为当前室内的温度值。二元关系 $f$ 为：每支温度计显示的读数。
+    \end{exerciseList}
+
+    \noindent\textit{在问题7-9中，识别下列物理公式中的自变量与因变量。}
+    \begin{exerciseList}
+        \item 欧姆定律 $I = \frac{U}{R}$。当电阻 $R$ 固定时，电流 $I$ 随电压 $U$ 变化。
+        \item 匀加速运动的速度公式 $v = v_0 + at$。其中 $v_0$ 和 $a$ 是常数。
+        \item 理想气体的压强公式 $P = \frac{nRT}{V}$。假设温度 $T$ 和物质的量 $n$ 固定。
+    \end{exerciseList}
+\end{exercises}
+
+\section{函数的性质和表达}
+\subsection{函数的表示法}
+函数有以下四种表示方法：
+ \begin{itemize}
+    \item 描述法  (用语言来描述)
+    \item 数值法  (用表格列出函数值)
+    \item 图像法  (用函数图像)
+    \item 代数法  (用显示方程)
+ \end{itemize}
+\subsection{函数的奇偶性}
+\begin{definition}{函数的奇偶性}
+    如果$y=f(x)$是：
+    \[
+    \begin{aligned}
+          &x\text{的奇函数，如果}f(x)+f(-x)=0\\
+          &x\text{的偶函数，如果}f(x)=f(-x)
+    \end{aligned}
+    \]
+    对于函数的整个区间成立
+\end{definition}
+\begin{example}
+    判断下列函数的奇偶性：
+    \begin{itemize}
+        \item $f(x)=x^3+2x$，因为$f(-x)=-x^3-2x=-f(x)$，所以$f(x)$是奇函数
+        \item $f(x)=x^2+3$，因为$f(-x)=(-x)^2+3=x^2+3=f(x)$，所以$f(x)$是偶函数
+        \item $f(x)=x^2+x$，因为$f(-x)=(-x)^2+(-x)=x^2-x\neq f(x)$且$f(-x)\neq -f(x)$，所以$f(x)$既不是奇函数也不是偶函数
+    \end{itemize}
+\end{example}
+\subsection{函数的单调性}
+\begin{definition}{单调性和单调区间}
+    设函数$y=f(x)$在区间$I$上有定义：
+    \begin{itemize}
+         \item 如果对于任意$x_1,x_2\in I$,当$x_1<x_2$时，均有$f(x_1)<f(x_2)$,则称函数$f(x)$在区间上是增函数。
+         \item 如果对于任意$x_1,x_2\in I$,当$x_1<x_2$时，均有$f(x_1)>f(x_2)$,则称函数$f(x)$在区间上是减函数。
+    \end{itemize}
+将区间$I$成为函数$f(x)$的单调区间，函数$f(x)$在区间$I$上具有单调性。
+\end{definition}
+\begin{example}
+    判断下列函数的单调性
+    
+    \begin{itemize}
+        \item $f(x)=3x+2$，该函数在$\mathbb{R}$上单调递增
+        \item $f(x)=2^x+3$，该函数在$\mathbb{R}$上单调递增
+        \item $f(x)=x^2-3x+2$，该函数在$(-\infty, \frac{3}{2})$上单调递减，在$(\frac{3}{2}, +\infty)$上单调递增
+    \end{itemize}
+
+\end{example}
+
+\subsection{函数的变换}
+\subsubsection{平移变换}
+\textbf{垂直平移图形}：
+    \begin{itemize}
+        \item 往上平移函数$y=f(x)$的图形，加一正常数到公式的右边。
+        \item 往下平移函数$y=f(x)$的图形，加一负常数到公示的右边。
+    \end{itemize}
+\begin{example}
+在公式$y=x^2$的基础上右端加一常数$1$就得到$y=x^2+1$，把图形往上移位了一个单位。
+
+在公式$y=x^2$的基础上右端加$-2$就得到$y=x^2-2$，把图形下移了两个单位。
+\end{example}
+
+\textbf{水平平移图形}
+    \begin{itemize}
+        \item 往右平移函数$y=f(x)$的图形，在$x$上加一个负常数.
+        \item 往左平移函数$y=f(x)$的图形，在$x$上加一个正常数.
+    \end{itemize}
+
+\begin{example}
+在公式$y=x^2$的基础上把$x$替换成$x-3$就得到$y=(x-3)^2$，把图形往右移了三个单位。
+
+在公式$y=x^2$的基础上把$x$替换成$x+2$就得到$y=(x+2)^2$，把图形往左移了两个单位。
+\end{example}
+
+\subsubsection{对称变换}
+\begin{itemize}
+    \item\textbf{关于$x$轴对称}：把函数$y=f(x)$的图形关于$x$轴对称，只需把公式右端的$y$替换成$-y$，即得到$y=-f(x)$。
+    \item\textbf{关于$y$轴对称}：把函数$y=f(x)$的图形关于$y$轴对称，只需把公式中的$x$替换成$-x$，即得到$y=f(-x)$。
+\end{itemize}
+\begin{example}
+    把函数$y=x^3$的图形关于$x$轴对称，得到$y=-x^3$。
+
+    把函数$y=x^3$的图形关于$y$轴对称，得到$y=(-x)^3=-x^3$。
+\end{example}
+
+\subsection{复合函数和反函数}
+\begin{definition}{复合函数}
+设存在两个函数分别为:$f:A\to B$和$g:B\to C$,则可以定义复合函数如下：
+\[
+    (g\circ f)(x)=g(f(x))
+\]
+其中，$g\circ f:A \to C$成为$f$和$g$的复合函数
+\end{definition}
+\leftnote[-70pt]{
+    可以将$f$和$g$分别看作是一个机器，那么复合函数$g\circ f$就是一个流水线，原材料先输入到$f$机器中然后output再作为$g$机器的input。
+}
+\begin{example}
+在恒温条件下，理想气体的压强$P$和体积$V$之间的关系为$PV=C$，其中$C$为常数。如图所示，气缸的活塞可以上下移动以改变气体的体积$V$。试求出压强$P$与活塞高度$h$之间的函数关系。
+
+\begin{solution}
+设气缸的横截面积为$S$,则体积$V$与活塞高度$h$之间的关系为：
+\[
+     V=f(h)=Sh
+\]
+则复合函数$P(h)=P(V(h))=g\circ f$为：
+\[P(h)=\frac{C}{f(h)}=\frac{C}{Sh}\]
+\end{solution}
+\end{example}
+
+\begin{definition}{反函数}
+    设存在两个函数$f:A\to B$和$g:B \to A$,如果对于任意的$a \in A$和$b \in B$,满足：
+     \[
+     (g\circ f)a=a,\quad(f\circ g)b=b
+     \]
+     我们称$f$和$g$互为反函数。
+\end{definition}
+
 \end{document}

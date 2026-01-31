@@ -12,6 +12,10 @@
 \usepackage{enumitem}
 \usepackage{setspace}
 \usepackage{newtxtext,newtxmath} 
+\usepackage{booktabs} 
+\usepackage{marginnote}
+\usepackage{caption}
+\usepackage{graphicx}
 
 \tcbuselibrary{skins, breakable}
 
@@ -26,27 +30,25 @@
 % --- 页面布局 (US Letter 8.5x11in) ---
 \geometry{paperwidth=8.5in, paperheight=11in, left=2.1in, right=0.6in, top=0.7in, bottom=0.7in}
 \setstretch{1.15}
+\reversemarginpar % 强制边注出现在左侧大边距
+\setlength{\marginparwidth}{1.5in}
+\setlength{\marginparsep}{0.3in}
 
-% --- 计数器设置 (1:1 还原三级编号逻辑) ---
-% 定义计数器，随 section 重置
+% --- 计数器设置 ---
 \newcounter{defn}[section]
 \renewcommand{\thedefn}{\thesection.\arabic{defn}}
-
 \newcounter{thrm}[section]
 \renewcommand{\thethrm}{\thesection.\arabic{thrm}}
-
-% 例题通常在每一节从 1 开始独立编号
 \newcounter{exmp}[section]
 \renewcommand{\theexmp}{\arabic{exmp}}
 
-% --- 1. Definition (左栏编号: 1.1.1 格式) ---
+% --- 1. Definition (左栏侧标) ---
 \newtcolorbox[use counter=defn]{definition}[1]{
     enhanced, breakable,
     colback=zillDefBg, colframe=zillTeal,
     boxrule=0.5pt, arc=0pt,
     left=2mm, right=2mm, top=3mm,
     fontupper=\setstretch{1.15},
-    % 框内标题：如 Differential Equation
     before upper={\textbf{#1}\par\medskip}, 
     overlay={
         \node[anchor=north east, fill=zillTeal, inner sep=2mm, text=white, 
@@ -56,7 +58,7 @@
     before skip=18pt, after skip=18pt
 }
 
-% --- 2. Theorem (左栏编号: 1.1.1 格式) ---
+% --- 2. Theorem (左栏侧标) ---
 \newtcolorbox[use counter=thrm]{theorem}[1]{
     enhanced, breakable,
     colback=white, colframe=zillOrange,
@@ -72,12 +74,11 @@
     before skip=18pt, after skip=18pt
 }
 
-% --- 3. Example (1:1 还原横线样式与编号) ---
+% --- 3. Example & Solution ---
 \newenvironment{example}[1][]{
     \refstepcounter{exmp}
     \vspace{15pt}
     \begin{adjustwidth}{0pt}{0pt}
-    \setstretch{1.15}
     \noindent\makebox[0pt][r]{\color{zillOrange}\rule{1.6in}{2.5pt}\hspace{0.4in}}
     \noindent{\large\bfseries\sffamily\color{zillOrange} EXAMPLE \theexmp}\quad \textbf{#1}
     \par\medskip
@@ -87,21 +88,16 @@
     \vspace{10pt}
 }
 
-% --- 4. Properties (回归蓝色方框，标题固定为 PROPERTIES) ---
-\newtcolorbox{properties}{
-    enhanced, breakable,
-    colback=zillPropBg, colframe=zillBlue,
-    arc=2pt, boxrule=1pt,
-    fonttitle=\bfseries\sffamily, coltitle=zillBlue,
-    title=PROPERTIES, 
-    attach title to upper,
-    after title={\vspace{0.5em}\par\hrule height 0.5pt \vspace{0.5em}},
-    left=3mm, right=3mm, top=3mm, bottom=3mm,
-    before skip=18pt, after skip=18pt
+\newenvironment{solution}{
+    \par\medskip
+    \noindent{\bfseries\itshape\color{zillOrange} 解}\quad 
+}{
+    \hfill\ensuremath{\color{zillOrange}\blacksquare}
+    \par
 }
 
-% --- 5. Objectives (章节目标) ---
-\newtcolorbox{objectives}{
+% --- 4. 章节目标 (Objectives) ---
+\newtcolorbox{Obje}{
     enhanced, breakable,
     colback=zillTeal!5, colframe=zillTeal,
     arc=0pt, outer arc=0pt, boxrule=0pt, leftrule=3pt,
@@ -110,13 +106,34 @@
     before upper={\textcolor{zillTeal}{\large\bfseries CHAPTER OBJECTIVES}\vspace{0.5em}\par},
     left=4mm, before skip=15pt, after skip=15pt
 }
+\newtcolorbox{obje}{
+    enhanced, breakable,
+    colback=zillTeal!5, colframe=zillTeal,
+    arc=0pt, outer arc=0pt, boxrule=0pt, leftrule=3pt,
+    fonttitle=\bfseries\sffamily\color{zillTeal},
+    title=SECTION OBJECTIVES, detach title,
+    before upper={\textcolor{zillTeal}{\large\bfseries SECTION OBJECTIVES}\vspace{0.5em}\par},
+    left=4mm, before skip=15pt, after skip=15pt
+}
+
+% --- 5. 左栏辅助工具 (Note/Fig/TikZ) ---
+\newcommand{\leftnote}[2][0pt]{%
+  \marginnote[\raggedright\footnotesize\itshape\color{zillTeal} #2]{}[#1]
+}
+
+\newcommand{\leftfig}[3][0pt]{%
+  \marginnote[\centering\includegraphics[width=\marginparwidth]{#2}\captionof{figure}{#3}]{}[#1]
+}
+
+\newcommand{\lefttikz}[3][0pt]{%
+  \marginnote[\centering #2\captionof{figure}{#3}]{}[#1]
+}
 
 % --- 6. 习题环境 (Exercises) ---
 \newlist{exerciseList}{enumerate}{2}
 \setlist[exerciseList,1]{label=\bfseries\arabic*., labelsep=0.5em, leftmargin=2em, itemsep=1.2ex, before=\small\setstretch{1.1}}
 
 \newenvironment{exercises}[1]{
-    \newpage
     \begin{adjustwidth}{-1.6in}{0in} 
     \setstretch{1.1}
     \noindent{\Large\bfseries\color{zillTeal} EXERCISES #1} 
@@ -128,11 +145,20 @@
     \end{multicols}\end{adjustwidth}
 }
 
-% --- 7. 章节标题设计 ---
+% --- 7. 标题格式定制 ---
 \titleformat{\chapter}[display]
   {\normalfont\huge\bfseries\color{zillTeal}}
   {\llap{\tcolorbox[colback=zillTeal,colframe=zillTeal,width=1.8cm,sharp corners, fontupper=\color{white}\Huge\bfseries,halign=center] \thechapter \endtcolorbox\hspace{0.8in}}}
   {-22pt}
   {\titlerule[2.5pt]\vspace{2pt}\titlerule[1pt]\vspace{1ex}\filright}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{zillTeal}}
+  {\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {\color{zillBlue}\rule[0.1ex]{0.7em}{0.7em}}
+  {0.5em}{}
 
 \endinput
