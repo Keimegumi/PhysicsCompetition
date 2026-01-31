@@ -1,0 +1,49 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Introduction to ZillStyleBook}
+\begin{objectives}
+    \begin{enumerate}
+        \item 了解Zillstyle的使用方法
+        \item 了解环境的大概配置
+    \end{enumerate}
+\end{objectives}
+
+\section{章节标题}
+    \begin{definition}{定理名称}
+    Zillstyle是参考David.D.Zill的微分方程一书而编写的latex文档模版，来让受众可以更轻松的进行文档排版
+    \end{definition}
+
+    \begin{properties}
+        目前文档配置的环境有：
+        \begin{enumerate}
+            \item 目录前言(objectives)：让用户可以设置每一章的使用目标
+            \item 定义(definition)：让用户可以完善环境
+            \item 性质(properties):提供性质环境书写性质
+            \item 定理(theorem):帮助用户配置定理环境
+        \end{enumerate}
+        
+    \end{properties}
+
+    \begin{theorem}{定理名称}
+        定理环境非常的清晰，十分好用个人感觉
+    \end{theorem}
+    
+    \begin{example}
+        这是一个例子
+    \end{example}
+
+    \begin{exercises}{1}
+    
+    % 这里写题目的要求（通常是斜体）
+    \noindent\textit{In Problems 1--4, determine the order of the given differential equation.}
+
+    % 开启题目列表
+    \begin{exerciseList}
+        \item $y'' + 5y' + 6y = 0$
+        \item $\displaystyle \frac{d^4y}{dx^4} + \frac{d^2y}{dx^2} = \cos x$
+        \item $(1-x)y'' - 4xy' + 5y = \cos x$
+        \item $x^3 y''' - x^2 y'' + 4xy' - 3y = 0$
+    \end{exerciseList}
+    \end{exercises}
+\end{document}
