@@ -45,4 +45,4 @@ _minted-*/
 
 ## --- 编辑器相关 (VS Code / macOS) ---
 .vscode/
-.DS_Store
+.DS_Stores
