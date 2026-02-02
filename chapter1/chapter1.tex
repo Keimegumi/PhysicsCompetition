@@ -307,11 +307,11 @@ t=f(h)=\sqrt{\frac{2h}{g}}\]
     \begin{itemize}
         \item 正弦($\sin$):一个角$\theta$对应的点的$y$坐标
         \item 余弦($\cos$):一个角$\theta$对应的点的$x$坐标
-        \item 正切($\tan$):正弦和余弦的比值$\tan{\theta}=\frac{\sin\theta}{\cos\theta}$
+        \item 正切($\tan$):正弦和余弦的比值$\displaystyle \tan{\theta}=\frac{\sin\theta}{\cos\theta}$
     \end{itemize}
 \end{definition}
 
-\lefttikz[-70pt]{
+\lefttikz[-110pt]{
     \begin{tikzpicture}[>=stealth, scale=1.7]
         % 坐标轴：标签全部加了 $ $ 保护
         \draw[->] (-1.2,0) -- (1.2,0) node[right] {$x$};
@@ -331,4 +331,239 @@ t=f(h)=\sqrt{\frac{2h}{g}}\]
 
 对于单位圆上的点 $P(x,y)$，其横坐标即为 $\cos\theta$，纵坐标即为 $\sin\theta$。由此可见，当点 $P$ 在不同象限运动时，三角函数值的正负号会随之改变。
 
+\begin{properties}
+    \begin{enumerate}
+        \item $\sin^2\theta+\cos^2\theta=1$
+        \item \textbf{诱导公式}：奇变偶不变，符号看象限
+    \begin{itemize}
+    \item $\displaystyle \begin{aligned}[t] % [t] 表示顶部对齐
+        & \sin(\theta + 2k\pi) = \sin\theta, && \cos(\theta + 2k\pi) = \cos\theta && \text{(周期性)} \\
+        & \sin(-\theta) = -\sin\theta,       && \cos(-\theta) = \cos\theta       && \text{(奇偶性)}
+    \end{aligned}$
+    \item $\displaystyle \begin{aligned}[t]
+        & \sin(\theta + \pi)=-\sin\theta,&&\cos(\theta+\pi)=-\cos\theta\\
+        & \sin(\pi-\theta)=\sin\theta,&&\cos(\pi-\theta)=-\cos\theta
+    \end{aligned}$
+    \item $\displaystyle \begin{aligned}[t]
+        & \sin(\frac{\pi}{2}-\theta)=\cos{\theta},&&\cos(\frac{\pi}{2}-\theta)=\sin\theta\\
+        & \sin(\frac{\pi}{2}+\theta)=\cos{\theta},&&\cos(\frac{\pi}{2}+\theta)=-\sin\theta
+    \end{aligned}$
+\end{itemize}
+    \item \textbf{和差化角}：
+    $\displaystyle
+    \begin{aligned}[t]
+        \sin(a \pm b) &= \sin a \cos b \pm \cos a \sin b \\
+        \cos(a \pm b) &= \cos a \cos b \mp \sin a \sin b
+    \end{aligned}
+    $
+    \end{enumerate}
+
+\end{properties}
+\leftnote[-250pt]{
+    在这些基本恒等式的基础上，我们也可以得到别的恒等式，例如二倍角公式和$\displaystyle \tan$有关的恒等式，这些恒等式我们会在例题中讨论
+}
+\par
+    \begin{example}{"拍"现象}
+        生活中，两个频率相近的波发生干涉后会出现\kwd{拍}现象。例如钢琴调音时，调音师同时敲击待调的弦和标准弦，在听觉上会感到音量有周期性的强弱。
+        试利用三角函数及其恒等变换式，来解释这种现象的原理。
+        
+        \kwd{note}:振动的数学表达式是：$\displaystyle A=\cos(\omega t+\phi)$
+
+
+
+    \end{example}
+% --- 讲义正文：三角函数的图像 ---
+
+\subsubsection{三角函数的图像}
+
+三角函数的图像通常被称为“正弦波形”（Sinusoidal waves）。在物理学中，它们是描述简谐运动、波动以及交流电最基本的数学模型。
+
+\lefttikz[0pt]{
+    \begin{tikzpicture}[>=stealth, scale=0.75]
+        % 坐标轴
+        \draw[->] (-0.5,0) -- (7,0) node[right] {\tiny $x$};
+        \draw[->] (0,-1.5) -- (0,1.5) node[above] {\tiny $y$};
+        % 绘制正弦曲线 (实线)
+        \draw[zillTeal, ultra thick, domain=0:6.28, samples=100] plot (\x, {sin(\x r)});
+        % 绘制余弦曲线 (虚线)
+        \draw[zillOrange, thick, dashed, domain=0:6.28, samples=100] plot (\x, {cos(\x r)});
+        % 标注关键点
+        \node[below left] at (0,0) {\tiny $0$};
+        \draw (1.57,0.1) -- (1.57,-0.1) node[below] {\tiny $\frac{\pi}{2}$};
+        \draw (3.14,0.1) -- (3.14,-0.1) node[below] {\tiny $\pi$};
+        \draw (6.28,0.1) -- (6.28,-0.1) node[below] {\tiny $2\pi$};
+        \node[left] at (0,1) {\tiny $1$};
+        \node[left] at (0,-1) {\tiny $-1$};
+        % 图例
+        \node[zillTeal, right] at (1,1.3) {\tiny $\sin x$};
+        \node[zillOrange, right] at (4,1.3) {\tiny $\cos x$};
+    \end{tikzpicture}
+}{正弦与余弦图像}
+
+\begin{properties}
+    \textbf{正弦函数 $y = \sin x$ 的图像性质}
+    \begin{itemize}
+        \item \textbf{定义域与值域}：定义域为 $\mathbb{R}$，值域为 $[-1, 1]$。
+        \item \textbf{周期性}：具有周期性，最小正周期 $T = 2\pi$。
+        \item \textbf{对称性}：关于原点对称，是奇函数。
+        \item \textbf{相位关系}：$\cos x = \sin(x + \frac{\pi}{2})$，即余弦图像可看作正弦图像向左平移 $\pi/2$。
+    \end{itemize}
+\end{properties}
+
+\leftnote[150pt]{物理直觉：在物理中，我们更习惯研究一般形式：\\ $y = A \sin(\omega x + \phi)$ \\ 其中每一个参数都对应一个明确的物理量。}
+
+\subsubsection{图像的变换与物理意义}
+
+在物理竞赛中，理解函数图像的平移与伸缩如何对应物理状态的变化至关重要。
+
+\begin{properties}
+    \textbf{参数对图像的影响}
+    \begin{itemize}
+        \item \textbf{振幅 $A$}：决定图像在垂直方向的拉伸或压缩。在振动学中，$A$ 代表最大位移。
+        \item \textbf{频率参数 $\omega$}：决定图像在水平方向的“胖瘦”。$\omega$ 越大，周期 $T = \frac{2\pi}{\omega}$ 越小，图像越拥挤。
+        \item \textbf{初相位 $\phi$}：决定图像在水平方向的左右平移。
+    \end{itemize}
+\end{properties}
+\leftnote[50pt]{
+    对于 $y = \sin(\omega x + \phi)$，图像的平移量$\frac{\phi}{\omega}$不是$\phi$。
+    必须先提取系数 $\omega$：
+    \[ y = \sin\left[ \omega \left( x + \frac{\phi}{\omega} \right) \right] \]
+    这说明图像是向左平移了 $\frac{\phi}{\omega}$ 个单位。在物理中，这意味着“初相位”与“时间偏移”是不同的概念。
+}
+\begin{example}[简谐振动方程解析]
+    已知一个质点的振动方程为 $x(t) = 10 \sin(2\pi t + \frac{\pi}{3})$（单位：cm, s）。
+    请回答：
+    (a) 该振动的振幅 $A$ 和周期 $T$ 分别是多少？
+    (b) 该图像是由标准正弦波 $y = 10 \sin(2\pi t)$ 向哪个方向平移了多少距离得到的？
+
+    \begin{solution}
+        (a) 由方程可知，振幅 $\displaystyle A = \qty{10}{cm}$。角频率 $\displaystyle \omega = 2\pi$，则周期 $\displaystyle T = \frac{2\pi}{\omega} = \frac{2\pi}{2\pi} = \qty{1}{s}$。
+        
+        (b) 提取系数 $\omega$：$\displaystyle 2\pi t + \frac{\pi}{3} = 2\pi (t + \frac{1}{6})$。
+        根据“左加右减”原则，该图像是由 $y = 10 \sin(2\pi t)$ 向左平移了 $1/6$ 个单位距离得到的。
+    \end{solution}
+\end{example}
+
+\subsubsection{反三角函数及其图像}
+
+当我们需要从三角函数的值反推对应的角度时，就需要用到反三角函数。由于三角函数在整个实数域上不是单调的，为了定义其反函数，我们必须\kwd{限制其定义域}，使其在特定区间内是“一一对应”的。
+
+\leftnote[-50pt]{\textbf{物理意义}：\\
+反三角函数的结果是一个\textbf{角度}。在物理竞赛中，它最常用于通过力或速度的分量来确定矢量的方向（即求偏角）。}
+
+\begin{definition}{反正弦与反正切函数}
+    \begin{itemize}
+        \item \kwd{反正弦函数}: $y = \arcsin x$：是 $x = \sin y$ 在 $y \in [-\frac{\pi}{2}, \frac{\pi}{2}]$ 上的反函数。
+        \item \kwd{反正切函数}: $y = \arctan x$：是 $x = \tan y$ 在 $y \in (-\frac{\pi}{2}, \frac{\pi}{2})$ 上的反函数。
+    \end{itemize}
+\end{definition}
+
+\begin{properties}
+    \textbf{常用反三角函数的定义域与值域}
+    \par\medskip
+    在计算时，务必注意结果（角度）的取值范围：
+    \begin{itemize}
+        \item $y = \arcsin x$：定义域 $[-1, 1]$，值域 $[-\frac{\pi}{2}, \frac{\pi}{2}]$。
+        \item $y = \arccos x$：定义域 $[-1, 1]$，值域 $[0, \pi]$。
+        \item $y = \arctan x$：定义域 $\mathbb{R}$，值域 $(-\frac{\pi}{2}, \frac{\pi}{2})$。
+    \end{itemize}
+\end{properties}
+\lefttikz[-100pt]{
+    \begin{tikzpicture}[>=stealth, scale=1.3]
+        % 1. 坐标轴
+        \draw[->] (-1.5,0) -- (1.5,0) node[right] {\tiny $x$};
+        \draw[->] (0,-1.8) -- (0,1.8) node[above] {\tiny $y$};
+        
+        % 2. 绘制 y = sin x (背景虚线)
+        \draw[gray, dashed, domain=-1.57:1.57, samples=50] plot (\x, {sin(\x r)});
+        
+        % 3. 绘制 y = x (对称轴)
+        \draw[gray, ultra thin] (-1.5,-1.5) -- (1.5,1.5);
+        
+        % 4. 核心修正：绘制 y = arcsin x
+        % 虽然数学上是 x=sin(y)，但在 TikZ plot 里我们仍用 \x 作为遍历变量
+        \draw[zillOrange, ultra thick, domain=-1.57:1.57, samples=50] plot ({sin(\x r)}, \x);
+        
+        % 5. 标注
+        \node[below left] at (0,0) {\tiny $0$};
+        \node[zillOrange, right] at (0.7, 1.3) {\tiny $y = \arcsin x$};
+        \node[left] at (0, 1.57) {\tiny $\pi/2$};
+        \node[left] at (0, -1.57) {\tiny $-\pi/2$};
+        \draw (1,0.05) -- (1,-0.05) node[below] {\tiny $1$};
+        \draw (-1,0.05) -- (-1,-0.05) node[below] {\tiny $-1$};
+    \end{tikzpicture}
+}{反正弦函数图像与其对称性}
+
+
+
+\begin{caution}{符号的使用习惯}
+    在许多物理教材和科学计算器中，反正弦函数常记作 $\sin^{-1} x$。
+    请务必记住：
+    \[ \sin^{-1} x \equiv \arcsin x \neq \frac{1}{\sin x} \]
+    指数 $-1$ 在这里表示“反函数”，而非“倒数”。
+\end{caution}
+
+\begin{example}[利用分量确定矢量方向]
+    在平面直角坐标系中，一个力矢量的水平分量为 $F_x = \qty{3.0}{N}$，竖直分量为 $F_y = \qty{4.0}{N}$。试求合力 $\bm{F}$ 与 $x$ 轴正方向的夹角 $\theta$。
+    
+    \begin{solution}
+        根据矢量合成的几何关系，合力的方向角 $\theta$ 满足正切关系：
+        \[ \tan \theta = \frac{F_y}{F_x} = \frac{4.0}{3.0} \approx 1.333 \]
+        为了求出角度 $\theta$，我们对等式两边取反正切函数：
+        \[ \theta = \arctan\left( \frac{4.0}{3.0} \right) \]
+        利用计算器计算可得：
+        \[ \theta \approx 0.927 \text{ rad} \quad (\text{约 } 53.1^\circ) \]
+        这说明该力指向第一象限，与水平方向成 $53.1^\circ$ 角。
+    \end{solution}
+\end{example}
+
+\leftnote[-130pt]{在物理竞赛的复杂计算中，我们往往不需要算出具体的角度数值，直接保留 $\theta = \arctan(2/3)$ 这种形式通常也是被接受的。}
+\begin{exercises}{1.3.1 }
+
+    \noindent\textit{在问题 1-5 中，探讨正切公式与二倍角公式的代数变形}
+    \begin{exerciseList}
+        \item \kwd{正切展开}：已知 $\tan \alpha = 1/2$，$\tan \beta = 1/3$，利用和角公式计算 $\tan(\alpha + \beta)$ 的值，并指出 $\alpha + \beta$ 在 $(0, \pi)$ 范围内的具体弧度。
+        \item \kwd{斜面倾角}：在物理受力分析中，经常遇到 $\tan(\theta + 45^\circ)$。请将其展开为仅含 $\tan \theta$ 的表达式。
+        \item 利用二倍角公式证明：$\frac{1 - \cos 2\theta}{\sin 2\theta} = \tan \theta$。这个公式常用于将复杂的振动方程简化。
+        \item \kwd{降幂公式}：利用 $\cos 2\theta$ 的变形公式，将 $\sin^2 \theta$ 和 $\cos^2 \theta$ 分别表示为含 $\cos 2\theta$ 的一次表达式。这在计算交流电有效值时非常重要。
+        \item 已知 $\tan \theta = t$，请利用倍角公式推导出 $\tan 2\theta$ 随 $t$ 变化的表达式，并讨论当 $\theta \to \pi/4$ 时，该式的变化趋势。
+    \end{exerciseList}
+
+    \noindent\textit{在问题 6-10 中，掌握万能公式 (Universal Substitution) 的应用。}
+    \begin{exerciseList}
+        \item \kwd{万能公式推导}：设 $t = \tan(\theta/2)$，利用倍角公式和 $\sin^2 + \cos^2 = 1$ 证明：
+        \[ \sin \theta = \frac{2t}{1+t^2}, \quad \cos \theta = \frac{1-t^2}{1+t^2} \]
+        \item \kwd{参数表达}：若一个物体的速度分量为 $v_x = v_0 \cos \theta, v_y = v_0 \sin \theta$，请利用 $t = \tan(\theta/2)$ 将其坐标分量转化为关于 $t$ 的分式方程。
+        \item 利用万能公式求解方程：$\sin \theta + \cos \theta = 1$。
+        \item 证明：$\frac{\sin \theta}{1 + \cos \theta} = \tan\frac{\theta}{2}$。该结论在光学中分析半偏角时经常使用。
+        \item 思考：万能公式为什么被称为“万能”？在处理含有 $\sin$ 和 $\cos$ 的复杂分式方程时，这种代换有什么优势？
+    \end{exerciseList}
+
+    \noindent\textit{在问题 11-15 中，结合反三角函数进行深度运算。}
+    \begin{exerciseList}
+        \item 计算 $\tan(\arcsin \frac{3}{5})$ 的值（提示：先设 $\theta = \arcsin \frac{3}{5}$，画出直角三角形）。
+        \item 证明反正切加法公式：$\arctan x + \arctan y = \arctan \frac{x+y}{1-xy}$（假设 $xy < 1$）。
+        \item \k w d{偏角计算}：已知 $\bm{v} = (1, t)$，利用 $\theta = \arctan t$ 表达速度方向，并推导当 $t$ 翻倍时，$\tan \theta$ 如何变化。
+        \item 计算 $\sin(2 \arctan \frac{1}{3})$。请直接利用万能公式的结果。
+        \item 求解 $x$：$\arctan(x) + \arctan(2x) = \frac{\pi}{4}$。
+    \end{exerciseList}
+
+    \noindent\textit{在问题 16-20 中，解决具有竞赛背景的物理综合问题。}
+    \begin{exerciseList}
+        \item \kwd{摩擦角模型}：一物体放在粗糙斜面上，恰好要下滑时，重力的下滑分量等于最大静摩擦力，即 $mg\sin \theta = \mu mg\cos \theta$。
+        \begin{enumerate}
+            \item 证明此时斜面倾角 $\theta = \arctan \mu$（$\mu$ 为摩擦系数）。
+            \item 若斜面倾角变为 $\theta + \phi$，请用 $\tan \theta$ 和 $\tan \phi$ 表示此时合力倾向的切向比例。
+        \end{enumerate}
+        \item \kwd{斜抛射程优化}：已知射程 $R = \frac{v_0^2}{g} \sin 2\theta$。若要在水平距离 $R$ 处击中高为 $H$ 的目标，需满足 $H = R \tan \theta - \frac{gR^2}{2v_0^2 \cos^2 \theta}$。利用 $1/\cos^2 \theta = 1 + \tan^2 \theta$，将此方程转化为关于 $\tan \theta$ 的一元二次方程。
+        \item \kwd{光的折射近似}：当光线从空气射入水中（$n=1.33$），在入射角 $\theta$ 很小时，利用 $\tan \theta \approx \sin \theta \approx \theta$，证明实际深度 $h$ 与视深 $h'$ 的关系为 $h/h' \approx n$。
+        \item \kwd{振动合成}：两个同方向振动 $x_1 = A\cos(\omega t)$ 和 $x_2 = A\cos(\omega t + \phi)$ 叠加。利用和差化积（或和角公式展开）证明合振幅 $A_{total} = 2A \cos(\phi/2)$。
+        \item \kwd{视角问题}：一个高为 $L$ 的物体竖直立在地面。观察者眼睛离地高度为 $h$，水平距离为 $x$。请用 $\arctan$ 写出观察者观察该物体时，眼睛张开的视角 $\gamma$ 的解析式。
+    \end{exerciseList}
+\end{exercises}
+
+\subsection{指数函数}
+\begin{example}{银行复利}
+
+\end{example}
 \end{document}

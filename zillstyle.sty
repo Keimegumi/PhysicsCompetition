@@ -7,6 +7,7 @@
 \usepackage{tcolorbox}
 \usepackage{titlesec}
 \usepackage{geometry}
+\usepackage[smartEllipses]{markdown}
 \usepackage{changepage} 
 \usepackage{multicol}   
 \usepackage{enumitem}
@@ -171,39 +172,41 @@
 }
 
 % --- 5. 左栏辅助工具 (Note/Fig/TikZ) ---
-% --- 5. 左栏辅助工具 (适配 2.8in 宽边距优化版) ---
-% --- 4. 左栏辅助工具完全修复 ---
+% --- 5. 智能左栏辅助工具 (左对齐 + 侧边引导线) ---
 
-% --- 5. 左栏辅助工具 (字号放大版) ---
-
-% 将 \footnotesize 提升为 \small
-% 将 \setstretch{1.0} 提升为 {1.1} 以增加呼吸感
+% 1. 智能左栏笔记：左侧带引导线，文字左对齐
 \newcommand{\leftnote}[2][0pt]{%
   \marginnote{%
     \begin{minipage}{\marginparwidth}
-      \RaggedRight\small\itshape\color{zillTeal}\setstretch{1.1} #2
+      % 在左侧放置一个 0 宽度的盒子，画出垂直线，不占用正文空间
+      \makebox[0pt][r]{\color{zillTeal!30}\rule[-0.8ex]{2.5pt}{3ex}\hspace{8pt}}%
+      \RaggedRight\setstretch{1.1}\small\itshape\color{zillTeal}%
+      #2
     \end{minipage}
   }[#1]
 }
 
+% 2. 智能左栏图片：图片与图注左对齐
 \newcommand{\leftfig}[3][0pt]{%
   \marginnote{%
     \begin{minipage}{\marginparwidth}
-      \centering
+      \flushleft % 确保整体靠左
       \includegraphics[width=\linewidth]{#2}
-      \vspace{2pt}
-      \captionof{figure}{\footnotesize #3}
+      \vspace{4pt}
+      \captionof{figure}{\RaggedRight\footnotesize #3} % 图注也左对齐
     \end{minipage}
   }[#1]
 }
 
+% 3. 智能左栏 TikZ：保持居中或左对齐
 \newcommand{\lefttikz}[3][0pt]{%
   \marginnote{% 
     \begin{minipage}{\marginparwidth}
-      \centering
-      {#2} 
-      \vspace{2pt}
-      \captionof{figure}{\footnotesize #3}
+      \flushleft % 整体靠左
+      \setstretch{1.0}\small
+      {#2} % TikZ 绘图
+      \vspace{4pt}
+      \captionof{figure}{\RaggedRight\footnotesize #3}
     \end{minipage}
   }[#1]
 }
@@ -225,6 +228,19 @@
 }{
     \end{multicols}\end{adjustwidth}
 }
+% --- 6*. Caution (警告框) ---
+\newtcolorbox{caution}[1]{
+    enhanced, breakable,
+    colback=white, colframe=red!75!black,
+    boxrule=0.5pt, arc=2pt,
+    left=8mm, fontupper=\small,
+    before upper={\textbf{\color{red!75!black} 注意事项：#1}\par\medskip},
+    overlay={
+        \node[anchor=north west] at ([xshift=2mm, yshift=-2mm]frame.north west) 
+        {\scalebox{1.5}{⚠️}};
+    },
+    before skip=12pt, after skip=12pt
+}
 
 % --- 7. 标题格式定制 ---
 \titleformat{\chapter}[display]
@@ -241,5 +257,19 @@
   {\normalfont\large\bfseries}
   {\color{zillBlue}\rule[0.1ex]{0.7em}{0.7em}}
   {0.5em}{}
+
+% --- 11. 语义化文字宏 (加粗并适配样式) ---
+
+% 通用加粗关键词 (使用无衬线加粗，更有教材感)
+\newcommand{\kwd}[1]{\textbf{\textsf{#1}}}
+
+% 物理意义专用标签 (加粗 + 颜色)
+\newcommand{\meaninglabel}{\textbf{\color{zillTeal}物理意义：}}
+
+% 注意事项专用标签 (加粗 + 橙色)
+\newcommand{\notelabel}{\textbf{\color{zillOrange}注意：}}
+
+% 结论/重点文字
+\newcommand{\keypoint}[1]{\begingroup\bfseries\color{zillBlue}#1\endgroup}
 
 \endinput

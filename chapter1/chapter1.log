@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.24)  2 FEB 2026 11:22
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.24)  2 FEB 2026 17:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -560,35 +560,100 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layouthoffset=\dimen304
 \Gm@layoutvoffset=\dimen305
 \Gm@dimlist=\toks44
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/markdown/markdown.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/markdown/markdown.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/lt3luabridge/lt3luabridge.tex
+\g_luabridge_method_int=\count339
+
+Package luabridge Info: Using shell escape as the bridging method
+
+)
+\markdownInputFileStream=\read4
+\markdownOutputFileStream=\write4
+)
+\markdownOptionFrozenCacheCounter=\count340
+Package: markdown 2025-02-21 v3.11.0-0-ga9095584 markdown renderer
+)
+
+Package markdown Info: Loading version latest of LaTeX Markdown theme
+(markdown)             witiko/markdown/defaults
+
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/markdown/markdownthemewitiko_markdown_defaults.sty
+
+Package markdown Info: Loading version latest of plain TeX Markdown theme
+(markdown)             witiko/markdown/defaults
+
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/markdown/markdownthemewitiko_markdown_defaults.tex) (/usr/local/texlive/2025/texmf-dist/tex/latex/paralist/paralist.sty
+Package: paralist 2017/01/22 v2.7 Extended list environments
+\pltopsep=\skip68
+\plpartopsep=\skip69
+\plitemsep=\skip70
+\plparsep=\skip71
+\pl@lab=\toks45
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/csvsimple/csvsimple.sty
+Package: csvsimple 2024/09/27 v2.7.0 LaTeX CSV file processing
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/csvsimple/csvsimple-legacy.sty
+Package: csvsimple-legacy 2024/09/27 version 2.7.0 LaTeX2e CSV file processing
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\csv@file=\read5
+\c@csvinputline=\count341
+\c@csvrow=\count342
+\c@csvcol=\count343
+\csv@out=\write5
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count344
+\FV@InFile=\read6
+\FV@TabBox=\box79
+\c@FancyVerbLine=\count345
+\FV@StepNumber=\count346
+\FV@OutFile=\write6
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+\markdownLaTeXCitationsCounter=\count347
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\markdownLaTeXRowCounter=\count348
+\markdownLaTeXRowTotal=\count349
+\markdownLaTeXColumnCounter=\count350
+\markdownLaTeXColumnTotal=\count351
+\markdownLaTeXTable=\toks46
+\markdownLaTeXTableAlignment=\toks47
+\markdownLaTeXTableEnd=\toks48
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/changepage/changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count339
-\cp@tempcnt=\count340
+\c@cp@cntr=\count352
+\cp@tempcnt=\count353
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
-\c@tracingmulticols=\count341
-\mult@box=\box79
+\c@tracingmulticols=\count354
+\mult@box=\box80
 \multicol@leftmargin=\dimen306
-\c@unbalance=\count342
-\c@collectmore=\count343
-\doublecol@number=\count344
-\multicoltolerance=\count345
-\multicolpretolerance=\count346
+\c@unbalance=\count355
+\c@collectmore=\count356
+\doublecol@number=\count357
+\multicoltolerance=\count358
+\multicolpretolerance=\count359
 \full@width=\dimen307
 \page@free=\dimen308
 \premulticols=\dimen309
 \postmulticols=\dimen310
-\multicolsep=\skip68
-\multicolbaselineskip=\skip69
-\partial@page=\box80
-\last@line=\box81
-\mc@boxedresult=\box82
+\multicolsep=\skip72
+\multicolbaselineskip=\skip73
+\partial@page=\box81
+\last@line=\box82
+\mc@boxedresult=\box83
 \maxbalancingoverflow=\dimen311
-\mult@rightbox=\box83
-\mult@grightbox=\box84
-\mult@firstbox=\box85
-\mult@gfirstbox=\box86
-\@tempa=\box87
+\mult@rightbox=\box84
+\mult@grightbox=\box85
+\mult@firstbox=\box86
+\mult@gfirstbox=\box87
 \@tempa=\box88
 \@tempa=\box89
 \@tempa=\box90
@@ -624,23 +689,24 @@ Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
 \@tempa=\box120
 \@tempa=\box121
 \@tempa=\box122
-\c@minrows=\count347
-\c@columnbadness=\count348
-\c@finalcolumnbadness=\count349
+\@tempa=\box123
+\c@minrows=\count360
+\c@columnbadness=\count361
+\c@finalcolumnbadness=\count362
 \last@try=\dimen312
 \multicolovershoot=\dimen313
 \multicolundershoot=\dimen314
-\mult@nat@firstbox=\box123
-\colbreak@box=\box124
-\mc@col@check@num=\count350
+\mult@nat@firstbox=\box124
+\colbreak@box=\box125
+\mc@col@check@num=\count363
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip70
+\labelindent=\skip74
 \enit@outerparindent=\dimen315
-\enit@toks=\toks45
-\enit@inbox=\box125
-\enit@count@id=\count351
-\enitdp@description=\count352
+\enit@toks=\toks49
+\enit@inbox=\box126
+\enit@count@id=\count364
+\enitdp@description=\count365
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/newtxtext.sty
@@ -650,28 +716,26 @@ Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks46
-\XKV@tempa@toks=\toks47
+\XKV@toks=\toks50
+\XKV@tempa@toks=\toks51
 )
-\XKV@depth=\count353
+\XKV@depth=\count366
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex
-\xs_counta=\count354
-\xs_countb=\count355
+\xs_counta=\count367
+\xs_countb=\count368
 )
 Package: xstring 2023/08/22 v1.86 String manipulations (CT)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/carlisle/scalefnt.sty)
 LaTeX Font Info:    Setting ntxLF sub-encoding to TS1/0 on input line 24.
 LaTeX Font Info:    Setting ntxTLF sub-encoding to TS1/0 on input line 24.
 LaTeX Font Info:    Setting ntxOsF sub-encoding to TS1/0 on input line 24.
 LaTeX Font Info:    Setting ntxTOsF sub-encoding to TS1/0 on input line 24.
  (/usr/local/texlive/2025/texmf-dist/tex/generic/kastrup/binhex.tex)
-\ntx@tmpcnta=\count356
-\ntx@cnt=\count357
+\ntx@tmpcnta=\count369
+\ntx@cnt=\count370
 LaTeX Info: Redefining \oldstylenums on input line 611.
 LaTeX Info: Redefining \liningnums on input line 615.
 \tx@sixem=\dimen316
@@ -693,13 +757,13 @@ Package: newtxmath 2024/09/22 v1.754
  `newtxmath' v1.754, 2024/09/22 Math macros based originally on txfonts (msharpe) (/usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
-\tx@cntz=\count358
+\tx@cntz=\count371
  (/usr/local/texlive/2025/texmf-dist/tex/generic/kastrup/binhex.tex)
-\tx@Isdigit=\count359
-\tx@IsAlNum=\count360
-\tx@tA=\toks48
-\tx@tB=\toks49
-\tx@su=\read4
+\tx@Isdigit=\count372
+\tx@IsAlNum=\count373
+\tx@tA=\toks52
+\tx@tB=\toks53
+\tx@su=\read7
 
 amsthm NOT loaded
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 402.
@@ -777,7 +841,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \symlargesymbolsTXA=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `largesymbolsTXA' in version `bold'
 (Font)                  U/ntxexa/m/n --> U/ntxexa/b/n on input line 679.
-\tx@sbptoks=\toks50
+\tx@sbptoks=\toks54
 LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 902.
 LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 903.
 LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 904.
@@ -807,16 +871,16 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen337
 \cmidrulekern=\dimen338
 \defaultaddspace=\dimen339
-\@cmidla=\count361
-\@cmidlb=\count362
+\@cmidla=\count374
+\@cmidlb=\count375
 \@aboverulesep=\dimen340
 \@belowrulesep=\dimen341
-\@thisruleclass=\count363
-\@lastruleclass=\count364
+\@thisruleclass=\count376
+\@lastruleclass=\count377
 \@thisrulewidth=\dimen342
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/marginnote/marginnote.sty
 Package: marginnote 2018/08/09 1.4b non floating margin notes for LaTeX
-\c@mn@abspage=\count365
+\c@mn@abspage=\count378
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
@@ -831,8 +895,8 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen350
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count366
-\c@continuedfloat=\count367
+\c@caption@flags=\count379
+\c@continuedfloat=\count380
 Package caption Info: changepage package is loaded.
 \caption@adjustwidth@hsize=\dimen351
 \caption@adjustwidth@linewidth=\dimen352
@@ -847,55 +911,53 @@ Package bm Info: No bold for \U/msb/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2025-02-27 v3.4.6 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count368
-\l__siunitx_number_exponent_fixed_int=\count369
-\l__siunitx_number_min_decimal_int=\count370
-\l__siunitx_number_min_integer_int=\count371
-\l__siunitx_number_round_precision_int=\count372
-\l__siunitx_number_lower_threshold_int=\count373
-\l__siunitx_number_upper_threshold_int=\count374
-\l__siunitx_number_group_first_int=\count375
-\l__siunitx_number_group_size_int=\count376
-\l__siunitx_number_group_minimum_int=\count377
+\l__siunitx_number_uncert_offset_int=\count381
+\l__siunitx_number_exponent_fixed_int=\count382
+\l__siunitx_number_min_decimal_int=\count383
+\l__siunitx_number_min_integer_int=\count384
+\l__siunitx_number_round_precision_int=\count385
+\l__siunitx_number_lower_threshold_int=\count386
+\l__siunitx_number_upper_threshold_int=\count387
+\l__siunitx_number_group_first_int=\count388
+\l__siunitx_number_group_size_int=\count389
+\l__siunitx_number_group_minimum_int=\count390
 \l__siunitx_angle_tmp_dim=\dimen353
-\l__siunitx_angle_marker_box=\box126
-\l__siunitx_angle_unit_box=\box127
-\l__siunitx_compound_count_int=\count378
+\l__siunitx_angle_marker_box=\box127
+\l__siunitx_angle_unit_box=\box128
+\l__siunitx_compound_count_int=\count391
  (/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
 ))
-\l__siunitx_table_tmp_box=\box128
+\l__siunitx_table_tmp_box=\box129
 \l__siunitx_table_tmp_dim=\dimen354
 \l__siunitx_table_column_width_dim=\dimen355
-\l__siunitx_table_integer_box=\box129
-\l__siunitx_table_decimal_box=\box130
-\l__siunitx_table_uncert_box=\box131
-\l__siunitx_table_before_box=\box132
-\l__siunitx_table_after_box=\box133
+\l__siunitx_table_integer_box=\box130
+\l__siunitx_table_decimal_box=\box131
+\l__siunitx_table_uncert_box=\box132
+\l__siunitx_table_before_box=\box133
+\l__siunitx_table_after_box=\box134
 \l__siunitx_table_before_dim=\dimen356
 \l__siunitx_table_carry_dim=\dimen357
-\l__siunitx_unit_tmp_int=\count379
-\l__siunitx_unit_position_int=\count380
-\l__siunitx_unit_total_int=\count381
+\l__siunitx_unit_tmp_int=\count392
+\l__siunitx_unit_position_int=\count393
+\l__siunitx_unit_total_int=\count394
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
 Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \col@sep=\dimen358
-\ar@mcellbox=\box134
+\ar@mcellbox=\box135
 \extrarowheight=\dimen359
-\NC@list=\toks51
-\extratabsurround=\skip71
-\backup@length=\skip72
-\ar@cellbox=\box135
+\NC@list=\toks55
+\extratabsurround=\skip75
+\backup@length=\skip76
+\ar@cellbox=\box136
 ))
 
 Package siunitx Info: Option "separate-uncertainty" has been deprecated in
@@ -905,20 +967,20 @@ Package siunitx Info: Option "separate-uncertainty" has been deprecated in
 
  (/usr/local/texlive/2025/texmf-dist/tex/latex/ragged2e/ragged2e.sty
 Package: ragged2e 2023/06/22 v3.6 ragged2e Package
-\CenteringLeftskip=\skip73
-\RaggedLeftLeftskip=\skip74
-\RaggedRightLeftskip=\skip75
-\CenteringRightskip=\skip76
-\RaggedLeftRightskip=\skip77
-\RaggedRightRightskip=\skip78
-\CenteringParfillskip=\skip79
-\RaggedLeftParfillskip=\skip80
-\RaggedRightParfillskip=\skip81
-\JustifyingParfillskip=\skip82
-\CenteringParindent=\skip83
-\RaggedLeftParindent=\skip84
-\RaggedRightParindent=\skip85
-\JustifyingParindent=\skip86
+\CenteringLeftskip=\skip77
+\RaggedLeftLeftskip=\skip78
+\RaggedRightLeftskip=\skip79
+\CenteringRightskip=\skip80
+\RaggedLeftRightskip=\skip81
+\RaggedRightRightskip=\skip82
+\CenteringParfillskip=\skip83
+\RaggedLeftParfillskip=\skip84
+\RaggedRightParfillskip=\skip85
+\JustifyingParfillskip=\skip86
+\CenteringParindent=\skip87
+\RaggedLeftParindent=\skip88
+\RaggedRightParindent=\skip89
+\JustifyingParindent=\skip90
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.4.1'
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -927,7 +989,7 @@ Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
 Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box136
+\l__tikzfill_img_box=\box137
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
@@ -937,17 +999,17 @@ Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 Package pdfcol Info: Interface disabled because of missing PDF mode of pdfTeX.
 )
 Package pdfcol Info: pdfTeX's color stacks are not available.
-\tcb@testbox=\box137
-\tcb@totalupperbox=\box138
-\tcb@totallowerbox=\box139
+\tcb@testbox=\box138
+\tcb@totalupperbox=\box139
+\tcb@totallowerbox=\box140
 )
-\c@defn=\count382
-\c@thrm=\count383
-\c@exmp=\count384
-\zillbox=\box140
-\c@exerciseListi=\count385
-\c@exerciseListii=\count386
-\enitdp@exerciseList=\count387
+\c@defn=\count395
+\c@thrm=\count396
+\c@exmp=\count397
+\zillbox=\box141
+\c@exerciseListi=\count398
+\c@exerciseListii=\count399
+\enitdp@exerciseList=\count400
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
 ))) (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/TeXGyreTermesX.fontspec)
@@ -1047,12 +1109,13 @@ Package fontspec Info:
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 (Font)              scaled to size 10.0pt on input line 3.
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 3.
- (./chapter1.aux)
+
+No file chapter1.aux.
 \openout1 = `chapter1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 3.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 3.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/omlntxmi.fd
+(/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
 LaTeX Font Info:    ... okay on input line 3.
@@ -1298,13 +1361,12 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/sl' will be
 LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10> not available
 (Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on input line 58.
 [2]
-Package marginnote Info: Margin note 3.1 is on absolute page 3 on input line 70.
 Package marginnote Info: right page because not two side mode on input line 70.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 (Font)              scaled to size 9.0pt on input line 70.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/it' will be
 (Font)              scaled to size 9.0pt on input line 70.
-Package marginnote Info: xpos seems to be 202.35622pt on input line 70.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 70.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 (Font)              scaled to size 8.0pt on input line 80.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/it' will be
@@ -1368,9 +1430,8 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 [4]
 
 [5]
-Package marginnote Info: Margin note 6.1 is on absolute page 6 on input line 198.
 Package marginnote Info: right page because not two side mode on input line 198.
-Package marginnote Info: xpos seems to be 202.35622pt on input line 198.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 198.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/it' will be
 (Font)              scaled to size 10.0pt on input line 202.
 
@@ -1378,20 +1439,59 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/it' will be
 LaTeX Font Warning: Font shape `TU/FandolSong-Regular(0)/b/it' undefined
 (Font)              using `TU/FandolSong-Regular(0)/b/n' instead on input line 202.
 
-Package marginnote Info: Margin note 6.2 is on absolute page 6 on input line 221.
 Package marginnote Info: right page because not two side mode on input line 221.
-Package marginnote Info: xpos seems to be 202.35622pt on input line 221.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 221.
 LaTeX Font Info:    Font shape `TU/FandolHei-Regular(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 222.
 
 
 [6] [7]
-Package marginnote Info: Margin note 8.1 is on absolute page 8 on input line 330.
 Package marginnote Info: right page because not two side mode on input line 330.
-Package marginnote Info: xpos seems to be 202.35622pt on input line 330.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 330.
 
 
-[8] (./chapter1.aux)
+[8]
+Package marginnote Info: right page because not two side mode on input line 364.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 364.
+LaTeX Font Info:    Font shape `TU/FandolHei-Regular(0)/b/n' will be
+(Font)              scaled to size 10.0pt on input line 367.
+Package marginnote Info: right page because not two side mode on input line 401.
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 401.
+
+Overfull \hbox (20.50484pt too wide) in paragraph at lines 401--401
+[] 
+ []
+
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 401.
+Package marginnote Info: right page because not two side mode on input line 413.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 413.
+
+
+[9]
+Package marginnote Info: right page because not two side mode on input line 432.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 432.
+Package marginnote Info: right page because not two side mode on input line 452.
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/it' will be
+(Font)              scaled to size 9.0pt on input line 452.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 452.
+
+
+[10]
+Package marginnote Info: right page because not two side mode on input line 495.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 495.
+
+Missing character: There is no ⚠ (U+26A0) in font [TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05;+tnum;+lnum;mapping=tex-text;!
+Missing character: There is no ️ (U+FE0F) in font [FandolSong-Regular.otf]/OT:script=hani;language=dflt;!
+Package marginnote Info: right page because not two side mode on input line 520.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 520.
+LaTeX Font Info:    Font shape `TU/FandolHei-Regular(0)/b/n' will be
+(Font)              scaled to size 9.0pt on input line 525.
+[11]
+Missing character: There is no ̨ (U+0328) in font [TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05;+tnum;+lnum;mapping=tex-text;!
+
+
+[12] (./chapter1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
@@ -1400,14 +1500,17 @@ L3 programming layer <2020/03/25>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 33817 strings out of 473832
- 818360 string characters out of 5729480
- 1162301 words of memory out of 5000000
- 56312 multiletter control sequences out of 15000+600000
- 595182 words of font info for 163 fonts, out of 8000000 for 9000
+ 36756 strings out of 473832
+ 912551 string characters out of 5729480
+ 1249931 words of memory out of 5000000
+ 59209 multiletter control sequences out of 15000+600000
+ 595222 words of font info for 168 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 151i,11n,152p,560b,1149s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 151i,12n,154p,560b,1151s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on chapter1.pdf (8 pages).
+Output written on chapter1.pdf (12 pages).
