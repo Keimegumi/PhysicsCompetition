@@ -23,6 +23,9 @@
   inter-unit-product = \ensuremath{\cdot},
   tight-spacing = true
 }
+\usepackage{ragged2e} % 必须加，否则 \RaggedRight 报错
+\reversemarginpar     % 必须加，否则边注在右边
+
 \tcbuselibrary{skins, breakable}
 
 % --- 颜色定义 ---
@@ -34,11 +37,26 @@
 \definecolor{exHeaderBlue}{RGB}{0, 150, 214} 
 
 % --- 页面布局 (US Letter 8.5x11in) ---
-\geometry{paperwidth=8.5in, paperheight=11in, left=2.1in, right=0.6in, top=0.7in, bottom=0.7in}
-\setstretch{1.15}
-\reversemarginpar % 强制边注出现在左侧大边距
-\setlength{\marginparwidth}{1.5in}
-\setlength{\marginparsep}{0.3in}
+% --- 修改后的页面布局 (更接近 Zill 原版比例) ---
+% --- 1. 页面布局深度优化 ---
+\geometry{
+    paperwidth=8.5in, 
+    paperheight=11in, 
+    left=2.8in,      % 主栏距离纸张左边缘的距离
+    right=0.6in, 
+    top=0.7in, 
+    bottom=0.7in,
+    footskip=0.3in
+}
+
+% 必须强制边注反转到左侧空白处
+\reversemarginpar 
+
+% 这里的宽度计算非常关键：
+% 可用空间是 2.8in，减去边距间隙 0.35in，剩下的就是边注宽度
+\setlength{\marginparwidth}{2.1in} 
+\setlength{\marginparsep}{0.35in} 
+
 
 % --- 计数器设置 ---
 \newcounter{defn}[section]
@@ -58,7 +76,7 @@
     before upper={\textbf{#1}\par\medskip}, 
     overlay={
         \node[anchor=north east, fill=zillTeal, inner sep=2mm, text=white, 
-              font=\bfseries\sffamily, text width=1.5in, align=right] 
+              font=\bfseries\sffamily, text width=1.2in, align=right] 
         at ([xshift=-5mm]frame.north west) {DEFINITION \thedefn};
     },
     before skip=18pt, after skip=18pt
@@ -74,24 +92,41 @@
     before upper={\textbf{#1}\par\medskip},
     overlay={
         \node[anchor=north east, fill=zillOrange, inner sep=2mm, text=white, 
-              font=\bfseries\sffamily, text width=1.5in, align=right] 
+              font=\bfseries\sffamily, text width=1.2in, align=right] 
         at ([xshift=-5mm]frame.north west) {THEOREM \thethrm};
     },
     before skip=18pt, after skip=18pt
 }
 
 % --- 3. Example & Solution ---
+% --- 1. 全局盒子声明 (务必放在定义外) ---
+\newsavebox{\zillbox}
+
 \newenvironment{example}[1][]{
     \refstepcounter{exmp}
-    \vspace{15pt}
+    \par\vspace{25pt} % 与上方正文的间距
     \begin{adjustwidth}{0pt}{0pt}
-    \noindent\makebox[0pt][r]{\color{zillOrange}\rule{1.6in}{2.5pt}\hspace{0.4in}}
-    \noindent{\large\bfseries\sffamily\color{zillOrange} EXAMPLE \theexmp}\quad \textbf{#1}
-    \par\medskip
+    \setstretch{1.15}
+    
+    \noindent
+    \begingroup
+    % --- 头部设计 ---
+    % 这里的 \hspace{2em} 控制整体向右平移的距离，你可以根据需要修改
+    \hspace*{0em}% 
+    % 准备左侧方块
+    \sbox{\zillbox}{\colorbox{zillOrange}{\strut\color{white}\bfseries\sffamily EXAMPLE \theexmp}}
+    \usebox{\zillbox}
+    \hspace{1em} % 方块与标题之间的间距
+    % 放置标题文字
+    {\large\bfseries\sffamily #1}
+    \endgroup
+    \par\vspace{10pt} % 标题与下方正文的间距
 }{
-    \par\vspace{5pt}\noindent{\color{zillOrange}\rule{\linewidth}{1.5pt}}
+    % --- 结尾设计：全行橙色横线 ---
+    \par\vspace{10pt}
+    \noindent{\color{zillOrange}\rule{\linewidth}{1.5pt}} 
     \end{adjustwidth}
-    \vspace{10pt}
+    \vspace{15pt} % 与下方正文的间距
 }
 
 \newenvironment{solution}{
@@ -136,16 +171,41 @@
 }
 
 % --- 5. 左栏辅助工具 (Note/Fig/TikZ) ---
+% --- 5. 左栏辅助工具 (适配 2.8in 宽边距优化版) ---
+% --- 4. 左栏辅助工具完全修复 ---
+
+% --- 5. 左栏辅助工具 (字号放大版) ---
+
+% 将 \footnotesize 提升为 \small
+% 将 \setstretch{1.0} 提升为 {1.1} 以增加呼吸感
 \newcommand{\leftnote}[2][0pt]{%
-  \marginnote[\raggedright\footnotesize\itshape\color{zillTeal} #2]{}[#1]
+  \marginnote{%
+    \begin{minipage}{\marginparwidth}
+      \RaggedRight\small\itshape\color{zillTeal}\setstretch{1.1} #2
+    \end{minipage}
+  }[#1]
 }
 
 \newcommand{\leftfig}[3][0pt]{%
-  \marginnote[\centering\includegraphics[width=\marginparwidth]{#2}\captionof{figure}{#3}]{}[#1]
+  \marginnote{%
+    \begin{minipage}{\marginparwidth}
+      \centering
+      \includegraphics[width=\linewidth]{#2}
+      \vspace{2pt}
+      \captionof{figure}{\footnotesize #3}
+    \end{minipage}
+  }[#1]
 }
 
 \newcommand{\lefttikz}[3][0pt]{%
-  \marginnote[\centering #2\captionof{figure}{#3}]{}[#1]
+  \marginnote{% 
+    \begin{minipage}{\marginparwidth}
+      \centering
+      {#2} 
+      \vspace{2pt}
+      \captionof{figure}{\footnotesize #3}
+    \end{minipage}
+  }[#1]
 }
 
 % --- 6. 习题环境 (Exercises) ---
@@ -153,9 +213,11 @@
 \setlist[exerciseList,1]{label=\bfseries\arabic*., labelsep=0.5em, leftmargin=2em, itemsep=1.2ex, before=\small\setstretch{1.1}}
 
 \newenvironment{exercises}[1]{
-    \begin{adjustwidth}{-1.6in}{0in} 
+    % adjustwidth 的第一个参数对应新的左边距偏移量
+    \begin{adjustwidth}{-2.2in}{0in} 
     \setstretch{1.1}
     \noindent{\Large\bfseries\color{zillTeal} EXERCISES #1} 
+    % ... 后面保持不变 ...
     \hfill 
     \smash{\raisebox{-2pt}{\footnotesize\color{white}\colorbox{exHeaderBlue!80}{Answers on ANS-1}}}
     \vspace{2pt}\hrule height 1.5pt\vspace{10pt}

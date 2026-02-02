@@ -67,7 +67,7 @@
         \end{itemize}
     \end{example}
 
-    \leftnote[-90pt]{将函数想象为一个机器也有助于理解这一概：将自变量input到机器中，经过函数（机器）的处理，会output出唯一一个值——因变量。}
+    \leftnote{将函数想象为一个机器也有助于理解这一概：将自变量input到机器中，经过函数（机器）的处理，会output出唯一一个值——因变量。}
     
 
     最后，我们需要了解一些详细的数学符号：
@@ -216,10 +216,10 @@
      \]
      我们称$f$和$g$互为反函数，符号记作$g(x)=f^{-1}(x)$
 \end{definition}
-\leftnote[-60pt]{
+\leftnote[-70pt]{
     这里我们需要格外注意反函数的定义域和值域问题，事实上一个具有反函数的函数一定是单射的
 }
-\begin{example}[(自由落体的“逆向思考”)]
+\begin{example}[自由落体的“逆向思考”]
 已知自由落体下落的高度$h(t)$和时间$t$的函数关系为：
 \[
 h(t)=\frac{1}{2}gt^2\]
@@ -287,4 +287,48 @@ t=f(h)=\sqrt{\frac{2h}{g}}\]
 
 \end{exercises}
 \section{基本初等函数}
+\begin{obje}
+    我们要花一些时间来研究几个基本函数的性质，这些函数将在实际问题中反复用到:
+    \begin{enumerate}
+        \item 了解三角函数和反三角函数的定义和变换
+        \item 了解指数函数和对数函数的定义和变换
+        \item 了解幂函数的基本运算性质
+    \end{enumerate}
+\end{obje}
+\subsection{三角函数和反三角函数}
+我们先回忆中学视角下的三角函数。对于一个直角三角形，设其中一个锐角为$\theta$ ，其对边（opposite）、邻边（adjacent）和斜边（hypotenuse）分别为$a,b,c$
+那么有：
+\[
+\sin\theta=\frac{a}{c}\quad \cos\theta=\frac{b}{c}\quad \tan\theta =\frac{\sin \theta}{\cos\theta}=\frac{a}{b} \qquad\theta \in (0^\circ,90^\circ)
+\]
+现在，我们需要将这一个函数的定义域扩展到所有角度，单位元的三角函数定义如下：
+\begin{definition}{单位圆下的三角函数}
+    单位圆是以原点为中心，半径为1的圆。任意角度$\theta$对应于单位圆上的一点，三角函数的定义如下
+    \begin{itemize}
+        \item 正弦($\sin$):一个角$\theta$对应的点的$y$坐标
+        \item 余弦($\cos$):一个角$\theta$对应的点的$x$坐标
+        \item 正切($\tan$):正弦和余弦的比值$\tan{\theta}=\frac{\sin\theta}{\cos\theta}$
+    \end{itemize}
+\end{definition}
+
+\lefttikz[-70pt]{
+    \begin{tikzpicture}[>=stealth, scale=1.7]
+        % 坐标轴：标签全部加了 $ $ 保护
+        \draw[->] (-1.2,0) -- (1.2,0) node[right] {$x$};
+        \draw[->] (0,-1.2) -- (0,1.2) node[above] {$y$};
+        
+        % 绘制一个圆
+        \draw[zillTeal, thick] (0,0) circle (1);
+        
+        % 绘制一条射线
+        \draw[zillOrange, thick] (0,0) -- (45:1) node[above right] {$P$};
+        
+        % 标注角度：注意 \theta 必须在 $ $ 内
+        \draw (0.3,0) arc (0:45:0.3);
+        \node at (0.5,0.2) {$\theta$}; 
+    \end{tikzpicture}
+}{单位圆}
+
+对于单位圆上的点 $P(x,y)$，其横坐标即为 $\cos\theta$，纵坐标即为 $\sin\theta$。由此可见，当点 $P$ 在不同象限运动时，三角函数值的正负号会随之改变。
+
 \end{document}
