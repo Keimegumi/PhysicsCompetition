@@ -563,8 +563,298 @@ t=f(h)=\sqrt{\frac{2h}{g}}\]
 \end{exercises}
 
 \subsection{指数函数}
-\begin{example}[银行复利]
-\end{example}
+函数 $\displaystyle f(x)=2^x$ 称为\kwd{指数函数}，因为变量是指数。不要与幂函数$g(x)=x^2$混淆，这里 $\displaystyle x$为底数
+\begin{definition}
+    \kwd{指数函数}一般指形如：
+    \[
+        f(x)=b^x
+    \]
+    的函数，其中 $\displaystyle b$为正常数 
+    
+\end{definition}
+我们需要申明一下它的含义：
+    \begin{enumerate}
+        \item $\displaystyle x=n$, $\displaystyle n$为正整数，则：
+        \[
+            b^n=\underbrace{b\cdot b \cdots b}_{n\text{个}b}
+        \]
+        \item $\displaystyle x=n$, $\displaystyle n$为负整数，则：
+        \[
+            b^n=\frac{1}{\underbrace{b\cdot b \cdots b}_{-n\text{个}b}}
+        \]
+        \item $\displaystyle x=p/q$, 即$\displaystyle n$为有理数，则：
+        \[
+            b^x=b^ \frac{p}{q} = \sqrt[q]{b^p}
+        \]
+    \end{enumerate}
+    而对于 $\displaystyle x$是无理数的情况，我们可以利用有理数的逼近证明其只有一个只来保证指数函数的单调性。
+    \begin{properties}\kwd{指数函数的运算法则}
+        \[
+        1. b^{x+y}=b^x b^y;\qquad 2.b^{x-y}= \frac{b^x}{b^y};\qquad 3.(b^x)^y=b^{xy}\qquad 4.(ab)^x=a^xb^x
+        \]
+    \end{properties} 
+\leftfig[-100pt]{fig/1.png}{指数函数图像}
+\leftnote[50pt]{
+    从图中可以看到指数函数具有单调性，根据底数的大小分为三类，指数函数的渐近线将在后文提及。
+}
+    \begin{example}
+        画出函数 $\displaystyle y=3-2^x$的图像并指出其定义域和值域 
+    \end{example}
+    \subsubsection{指数函数的应用}
+        指数函数在自然现象和社会现象的数学模型中频繁出现，我们将在后文解释其原因，这里简单举例一个细菌增殖的例子：
+        \begin{example}[培养基里的细菌数量]
+            考虑一个营养均匀充足的培养基，通过定时采样发现细菌数量每小时增值一倍，若 $\displaystyle t(\text{单位：}h)$时的细菌数量为 $\displaystyle p(t)$ 初始数量为 $\displaystyle p(0)=1000$,则：
+            \begin{solution}
+                \begin{itemize}
+                    \item $p(1)=2p(0)=2000$
+                    \item $p(2)=2p(1)=4000$
+                    \item$ p(t)=2^t\times 1000$
+                \end{itemize}
+                
+            \end{solution}   
+        \end{example}
+\subsection{常数 $\displaystyle e$ }
+在指数函数的所有底数中，从微积分的角度看有一个是最方便的，这就是自然常数 $\displaystyle e$
+\begin{definition}{自然常数}
+    设自然常数 $\displaystyle e$满足函数：
+    \[
+        f(x)=e^x
+    \]
+    使得函数在 $\displaystyle x=0$时切线的斜率为1 
+\end{definition}
+我们可以简单估计一下自然常数的值，如左图所示，指数函数在 $\displaystyle x=0$处的斜率和底数 $\displaystyle b$有函数关系，我们可以证明 $\displaystyle k=g(b)$是一个单调递增的函数，且：
+\[
+    g(2)<1<g(3)
+\]
+所以我们可以得到: $\displaystyle e\in (2,3)$ 
 
- 
-\end{document}
+事实上， $\displaystyle e=2.718\cdots$，是一个无理数。
+\subsection{对数函数}
+根据前文我们可以看到指数函数具有\kwd{单调性},根据反函数原理我们可以知道指数函数具有对应的反函数
+\begin{definition}{对数函数}
+    对于一个正实数 \( b > 0 \) 且 \( b \neq 1 \)，定义对数函数 \( \log_b(x) \) 为：
+
+\[
+y = \log_b(x) \quad \text{当且仅当} \quad b^y = x, \quad \text{其中} \quad x > 0.
+\]
+\end{definition}
+在上面我们可以看到对数函数具有以下性质：
+\begin{properties}
+    \begin{enumerate}
+        \item \kwd{定义域与值域}：
+        \begin{itemize}
+            \item 对数函数的定义域为 $(0, +\infty)$，即 $x$ 必须大于 0。
+            \item 对数函数的值域为整个实数集 $\mathbb{R}$，即对于任何正实数 $x$，都有一个对应的实数值 $y$。
+        \end{itemize}
+        
+        \item \kwd{基本运算规则}：
+        \begin{itemize}
+            \item $\log_b(xy) = \log_b(x) + \log_b(y)$
+            \item $\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)$
+            \item $\log_b(x^n) = n \cdot \log_b(x)$
+            \item $\log_b(b) = 1$
+            \item $\log_b(1) = 0$
+            \item $\log_b\left(\frac{1}{x}\right) = -\log_b(x)$
+        \end{itemize}
+        
+        \item \kwd{换底公式}：
+        对于任意的正实数 $a, b > 0$ 且 $a \neq 1$，可以通过换底公式将对数函数从一个底数转换为另一个底数：
+        \[
+        \log_b(x) = \frac{\log_a(x)}{\log_a(b)}
+        \]
+        换底公式是对数函数中非常常用的一条性质，尤其是在计算时，可以根据需要选择方便的底数。
+    \end{enumerate}
+\end{properties}
+
+\subsubsection{常用对数函数}
+\begin{itemize}
+    \item \kwd{自然对数}：当底数 $b$ 取 $e$（自然常数）时，对数函数被称为自然对数，记作 $\ln(x)$，即：
+    \[
+    \ln(x) = \log_e(x)
+    \]
+    其中，$e \approx 2.71828$。
+
+    \item \kwd{常用对数}：当底数 $b$ 取 10 时，对数函数称为常用对数，记作 $\lg(x)$，即：
+    \[
+    \lg(x) = \log_{10}(x)
+    \]
+\end{itemize}
+
+\subsubsection{对数函数的图像}
+
+对数函数是指数函数的反函数，因此它与指数函数有着密切的关系。对数函数的图像通常具有以下特点：
+\begin{enumerate}
+    \item 定义域为 $(0, +\infty)$，即只对正数定义。
+    \item 值域为整个实数集 $\mathbb{R}$，即可以取任意实数值。
+    \item 在 $x = 1$ 处通过原点，且随着 $x$ 增大，函数值逐渐增大。
+\end{enumerate}
+
+\begin{properties}
+    \textbf{对数函数图像的性质}
+    \begin{itemize}
+        \item 定义域：$(0, +\infty)$
+        \item 值域：$\mathbb{R}$
+        \item $y = \log_b(x)$，其中 $b > 0$ 且 $b \neq 1$
+        \item $y$ 在 $x = 1$ 处经过原点，$y(1) = 0$
+        \item 当 $b > 1$ 时，$y$ 随着 $x$ 增大而增大；当 $0 < b < 1$ 时，$y$ 随着 $x$ 增大而减小
+        \item 图像通过点 $(1, 0)$，并且在 $x$ 趋向于 $0^+$ 时，$y$ 趋向于 $-\infty$。
+    \end{itemize}
+\end{properties}
+
+\lefttikz[-300pt]{
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        % 1. 坐标轴
+        \draw[->] (0,0) -- (5.5,0) node[right] {\tiny $x$};
+        \draw[->] (0,-3) -- (0,3) node[above] {\tiny $y$};
+        
+        % 2. 绘制对数函数 y = log_b(x)
+        \draw[zillTeal, thick, domain=0.1:5, samples=100] plot (\x, {ln(\x)/ln(2)});
+        
+        % 3. 绘制辅助线 x = 1, y = 0
+        \draw[dashed, gray] (1,-3) -- (1,3);
+        \draw[dashed, gray] (0,-3) -- (5, 0);
+        
+        % 4. 标注
+        \node[below] at (1,0) {\tiny $1$};
+        \node[below left] at (0,0) {\tiny $0$};
+        \node[zillTeal, right] at (2, 2) {\tiny $y = \log_2(x)$};
+        \node[above right] at (5,0) {\tiny $x$};
+        \node[below left] at (0,-3) {\tiny $y$};
+    \end{tikzpicture}
+}{对数函数图像}
+
+\noindent 上图为底数为 $b = 2$ 的对数函数图像。可以看到，随着 $x$ 的增大，$y = \log_2(x)$ 的值逐渐增大，而当 $x$ 趋向于 0 时，$y$ 会趋向于 $-\infty$。函数图像在 $x = 1$ 处经过原点。
+
+\subsubsection{对数函数及其应用}
+
+在物理学中，对数函数常常用于描述衰减、增长等过程。例如，在放射性衰变中，物质的剩余量通常随时间呈指数衰减，而对数函数可以帮助我们求解不同时间点的物质剩余量。
+
+\begin{example}[放射性衰变]
+在放射性物质的衰变过程中，某物质的剩余量 $N(t)$ 随时间 $t$（单位：年）变化，符合以下指数衰减模型：
+\[
+N(t) = N_0 e^{-\lambda t}
+\]
+其中，$N_0$ 是物质的初始量，$\lambda$ 是衰变常数，$t$ 是时间。已知该物质的初始量为 $N_0 = 1000$ 克，且每年剩余量减半。请求解该物质的衰变常数 $\lambda$。
+
+\begin{solution}
+根据题意，物质每年剩余量减半，即当 $t = 1$ 时，剩余量为初始量的一半，因此：
+\[
+N(1) = \frac{N_0}{2}
+\]
+代入衰变公式：
+\[
+\frac{N_0}{2} = N_0 e^{-\lambda \cdot 1}
+\]
+两边除以 $N_0$：
+\[
+\frac{1}{2} = e^{-\lambda}
+\]
+对两边取自然对数：
+\[
+\ln\left(\frac{1}{2}\right) = -\lambda
+\]
+利用 $\ln\left(\frac{1}{2}\right) = -\ln(2)$，得到：
+\[
+-\ln(2) = -\lambda
+\]
+因此，衰变常数为：
+\[
+\lambda = \ln(2) \approx 0.693 \quad \text{每年}
+\]
+\end{solution}
+
+\noindent\textbf{第二问：} 计算该物质在经过10年后的剩余量。
+
+\begin{solution}
+根据衰变公式：
+\[
+N(10) = N_0 e^{-\lambda \cdot 10}
+\]
+代入已知数值，$N_0 = 1000$ 克，$\lambda \approx 0.693$：
+\[
+N(10) = 1000 e^{-0.693 \cdot 10}
+\]
+计算指数部分：
+\[
+N(10) = 1000 e^{-6.93} \approx 1000 \times 0.000998
+\]
+因此，经过10年后，剩余量约为：
+\[
+N(10) \approx 1 \, \text{克}
+\]
+\end{solution}
+
+\kwd{结论}
+\begin{itemize}
+    \item 该物质的衰变常数为 $\lambda \approx 0.693$ 每年。
+    \item 经过10年后，该物质的剩余量约为1克。
+\end{itemize}
+\end{example}
+\begin{exercises}{1.3.2}
+   
+    \noindent\textit{在问题 1-5 中，求解指数函数及其图像的基本性质。}
+    \begin{exerciseList}
+        \item 求解指数函数 $f(x) = 3^x$ 的定义域和值域，并画出其图像。
+        \item 画出函数 $f(x) = 2^{x-1}$ 的图像，并指出其定义域和值域。
+        \item 证明指数函数 $f(x) = 2^x$ 是单调递增的。
+        \item 求解函数 $f(x) = 5^x$ 在 $x = 0$ 处的切线方程。
+        \item 判断函数 $f(x) = e^{2x}$ 的单调性，并给出理由。
+    \end{exerciseList}
+    
+    \noindent\textit{在问题 6-10 中，运用对数函数的定义，解答以下问题。}
+    \begin{exerciseList}
+        \item 求解 $f(x) = \log_2(x)$ 的定义域和值域。
+        \item 求解 $f(x) = \log_3(x-1)$ 的定义域和值域。
+        \item 计算 $\log_2 8$ 和 $\log_2 32$，并验证其结果。
+        \item 给出 $\log_5 25$ 的计算方法并求值。
+        \item 设 $f(x) = \log_7(x)$，求 $f(49)$。
+    \end{exerciseList}
+
+    \noindent\textit{在问题 11-15 中，运用对数的基本运算规则解答以下问题。}
+    \begin{exerciseList}
+        \item 证明 $\log_b(xy) = \log_b(x) + \log_b(y)$ 并给出一个实际例子。
+        \item 证明 $\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)$ 并给出一个实际例子。
+        \item 证明 $\log_b(x^n) = n \cdot \log_b(x)$，并解释其物理意义。
+        \item 证明 $\log_b(b) = 1$，并提供一个应用实例。
+        \item 证明 $\log_b(1) = 0$，并解释其应用。
+    \end{exerciseList}
+     \noindent\textit{在问题 16-20 中，指数函数应用到物理中的实际问题。}
+    \begin{exerciseList}
+        \item 某物质的半衰期为 5 年，初始量为 2000 克。该物质的剩余量 $N(t)$ 随时间变化，符合公式 $N(t) = N_0 e^{-\lambda t}$。求解该物质的衰变常数 $\lambda$，并计算经过 10 年后物质的剩余量。
+        \item 一颗原子核的放射性衰变遵循指数衰变模型，其衰变过程符合公式 $N(t) = N_0 e^{-\lambda t}$，其中 $N_0 = 500$ 克，$\lambda = 0.1$。求该物质在 20 年后的剩余量。
+        \item 由于热传导，某物体的温度 $T(t)$ 随时间 $t$ 的变化满足 $T(t) = T_0 e^{-kt}$。假设该物体的初始温度为 100℃，而在经过 2 小时后温度降至 50℃，求热传导常数 $k$。
+        \item 一个物体的质量 $m(t)$ 随时间 $t$ 衰减，符合公式 $m(t) = m_0 e^{-kt}$，其中 $m_0 = 500$ 克。假设物体在 5 小时后剩余 200 克，求该物体的衰变常数 $k$。
+        \item 某药物在体内的浓度随时间 $t$ 的变化符合公式 $C(t) = C_0 e^{-\lambda t}$，其中 $C_0 = 100$ mg/L，$\lambda = 0.5$。求该药物在 4 小时后的浓度。
+    \end{exerciseList}
+    \noindent\textit{在问题 21-25 中，结合对数函数应用到物理中的实际问题。}
+    \begin{exerciseList}
+        \item 某物质的剩余量 $N(t)$ 随时间 $t$ 变化，符合公式 $N(t) = 1000 e^{-0.693 t}$。求解该物质在 $t = 5$ 年时的剩余量。
+        \item 在某物理过程中，某物体的温度 $T(t)$ 随时间变化，符合公式 $T(t) = 1000 \log_2(t+1)$。求当 $t = 3$ 时的温度。
+        \item 计算放射性物质的半衰期，已知其衰变常数为 $\lambda = 0.3466$，并应用对数公式求解。
+        \item 某物理实验中，测得的衰变过程符合 $N(t) = 1000 e^{-0.5 t}$。求解该物质的衰变常数。
+        \item 某反应的速率常数 $k$ 与温度 $T$ 的关系为 $\ln(k) = 0.05 T - 2$。求当 $T = 200$ 时，速率常数 $k$ 的值。
+    \end{exerciseList}
+
+    \noindent\textit{在问题 26-29 中，结合对数的换底公式解答以下问题。}
+    \begin{exerciseList}
+        \item 使用换底公式计算 $\log_2 16$。
+        \item 使用换底公式计算 $\log_3 81$。
+        \item 使用换底公式将 $\log_7 49$ 转换为以 $\log_2$ 为底的对数，并求解。
+        \item 使用换底公式将 $\log_5 25$ 转换为以自然对数为底的对数，并求解。
+    \end{exerciseList}
+
+    \noindent\textit{在问题 30-35 中，探究对数运算法则的性质。}
+    \begin{exerciseList}
+        \item 证明：$\log_b(xy) = \log_b(x) + \log_b(y)$ 并用实例验证。
+        \item 证明：$\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)$ 并举例说明。
+        \item 证明：$\log_b(x^n) = n \cdot \log_b(x)$。
+        \item 证明：$\log_b\left(\frac{1}{x}\right) = -\log_b(x)$。
+        \item 证明：$\log_b b = 1$，并给出例子说明。
+        \item 探讨常用对数 $\lg(x)$ 与自然对数 $\ln(x)$ 之间的关系，并通过换底公式计算 $\lg(x)$ 和 $\ln(x)$ 的转换。
+        \item 证明：$\log_b(xy) - \log_b(z) = \log_b\left(\frac{xy}{z}\right)$，并应用此公式进行实际计算。
+        \item 证明：$\log_b(x) + \log_b(y) = \log_b(xy)$，并通过实际计算验证。
+        \item 证明：$\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)$，并解释其应用。
+        \item 使用对数运算法则解答：$\log_2 32 + \log_2 4 - \log_2 2$ 的值。
+    \end{exerciseList}
+\end{exercises}
+\end{document} 

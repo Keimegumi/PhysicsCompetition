@@ -21,10 +21,15 @@
 
 \tcbuselibrary{skins, breakable}
 
-% --- 2. 移除颜色，定义灰度体系 ---
+% --- 2. 颜色重定向 (将彩色名称映射为黑/灰，保证旧代码兼容) ---
+\definecolor{zillTeal}{RGB}{0, 0, 0}       % 原本的青色变黑色
+\definecolor{zillOrange}{RGB}{0, 0, 0}     % 原本的橙色变黑色
+\definecolor{zillBlue}{RGB}{0, 0, 0}       % 原本的蓝色变黑色
+\definecolor{exHeaderBlue}{RGB}{80, 80, 80} % 练习题页眉变深灰
+\definecolor{zillDefBg}{RGB}{245, 245, 245} % 定义框背景保留极浅灰（增加层次）
+\definecolor{zillPropBg}{RGB}{255, 255, 255} % 性质框变纯白
 \definecolor{boxGray}{RGB}{245, 245, 245}     % 浅灰背景
-\definecolor{mainBlack}{RGB}{0, 0, 0}         % 纯黑
-
+\definecolor{mainBlack}{RGB}{0, 0, 0}
 % --- 3. 标准页面布局 (无边栏) ---
 \geometry{
     paperwidth=8.5in, 
@@ -116,6 +121,15 @@
     left=4mm, before skip=15pt, after skip=15pt
 }
 
+\newtcolorbox{obje}{
+    enhanced, breakable,
+    colback=boxGray, colframe=mainBlack,
+    arc=0pt, boxrule=0pt, leftrule=3pt,
+    before upper={\term{CHAPTER OBJECTIVES}\vspace{0.5em}\par},
+    left=4mm, before skip=15pt, after skip=15pt
+}
+
+
 \newtcolorbox{caution}[1]{
     enhanced, breakable, colback=white, colframe=mainBlack,
     boxrule=0.5pt, arc=0pt, left=8mm,
@@ -164,7 +178,10 @@
 
 % --- 10. 标题格式 (黑白简洁版) ---
 \titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries}{\chapternamename\ \thechapter}{10pt}{\titlerule[2pt]\vspace{1ex}}
+  {\normalfont\huge\bfseries\color{zillTeal}}
+  {\llap{\tcolorbox[colback=zillTeal,colframe=zillTeal,width=1.8cm,sharp corners, fontupper=\color{white}\Huge\bfseries,halign=center] \thechapter \endtcolorbox\hspace{-0.7in}}}
+  {-22pt}
+  {\titlerule[2.5pt]\vspace{2pt}\titlerule[1pt]\vspace{1ex}\filright}
 
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
 

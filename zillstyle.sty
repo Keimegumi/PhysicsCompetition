@@ -193,7 +193,7 @@
       \flushleft % 确保整体靠左
       \includegraphics[width=\linewidth]{#2}
       \vspace{4pt}
-      \captionof{figure}{\RaggedRight\footnotesize #3} % 图注也左对齐
+      \captionof{figure}{\RaggedRight\small \textbf{#3}} % 图注也左对齐
     \end{minipage}
   }[#1]
 }
@@ -206,7 +206,7 @@
       \setstretch{1.0}\small
       {#2} % TikZ 绘图
       \vspace{4pt}
-      \captionof{figure}{\RaggedRight\footnotesize #3}
+      \captionof{figure}{\RaggedRight\small \textbf{#3}}
     \end{minipage}
   }[#1]
 }
