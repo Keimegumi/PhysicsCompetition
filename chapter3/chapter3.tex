@@ -1,0 +1,173 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{电路模型和电路定律}
+\section{参考方向和基尔霍夫定律}
+\subsection{参考方向}
+    \begin{definition}{电流参考方向}
+        电流的参考方向是选定的电流流动方向
+    \end{definition}
+    \begin{definition}{电压参考方向}
+        表达两点之间的电压时，用正极性(+)和负极性(-)分别表示高电位和低电位，而正极指向负极的方向就是电压参考方向
+    \end{definition}
+    \meaninglabel 选定参考方向后，可以将电流和电压当作代数处理，流向一致为正，流向不一致为负。
+    \begin{definition}{关联参考方向}
+        一个元件的电流和电压参考方向可以独立地任意指定。如果指定流过元件的电流的参考方向和电压参考方向一致，我们称这种参考方向为\kwd{关联参考方向}
+    \end{definition}
+\subsection{电阻元件}
+    我们在之后所考虑的所有元件都可以视为二端元件，对于二端元件我们有以下定理：
+    \begin{theorem}{电流恒等}
+        二端元件的两个端子流入的电流等于流出的电流
+    \end{theorem}
+    而对于我们常见到的用电器，往往都可以视为线性电阻元件，即：
+    \begin{definition}{线性电阻元件}
+        在电压和电流取关联参考方向时，在任何时刻它两端的电压和电流服从欧姆定律：
+            \[
+                u=Ri
+            \]
+            上式中$R$是电阻元件的参数，称为元件的电阻
+    \end{definition}
+\subsection{电压源和电流源}
+实际电源的形式多种多样，我们在这里可以抽象得到电压源和电流源，他们是二端有源元件：
+    \begin{definition}{电压源}
+            电压源是一个理想电路元件，它的端电压$u(t)$为：
+            \[
+            u(t)=u_s(t)
+            \]
+            $u_s(t)$为给定的时间函数，称为电压源的激励电压
+    \end{definition}
+    \begin{definition}{电流源}
+                        电流源是一个理想电路元件，它的端电流$i(t)$为：
+            \[
+            i(t)=i_s(t)
+            \]
+            $i_s(t)$为给定的时间函数，称为电流源的激励电流
+    \end{definition}
+    \subsection{基尔霍夫定律}
+    我们在介绍基尔霍夫定律之前，先介绍支路、节点和回路的概念。
+    \begin{definition}{电路基本构成}
+    \begin{itemize}
+        \item \kwd{支路}： 每一个二端元件称作一条支路
+        \item \kwd{节点}：支路的连接点
+        \item \kwd{回路}：支路所构成的闭合路径
+    \end{itemize}
+    \end{definition}
+    如果将电路中各个支路的电压和电流（简称为\kwd{支路电流}和\kwd{支路电压}）作为变量来看，我们可以列出两类方程：
+        \leftnote[0pt]{
+        \meaninglabel 在这里，几何约束往往指的是和研究对象无关的约束，后面我们会看到基尔霍夫定律仅仅和电路的形状有关。
+    }
+    \begin{enumerate}
+        \item 由二端元件自身的特性所得到的方程
+        \item 由元件相互连接赋予支路电流之间或支路电压之间从而列出的方程，我们也称之为\kwd{几何约束}。这类方程可从基尔霍夫定律中体现
+    \end{enumerate}
+基尔霍夫定律包括电流定律和电压定律：
+\leftnote[60pt]{
+    电流的“\kwd{代数和}”是根据电流是流入节点和流出节点来说的，流出节点的电流前面取"+"号，流入节点的电流前面取"-"号
+}
+\begin{theorem}{KCL定律}
+    在复杂电路中，任何时刻，对于任意节点，所有流出节点的支路电流的代数和恒等于0
+\end{theorem}
+\begin{theorem}{KVL定律}
+在复杂电路中，任何时刻，对于任意回路，所有支路电压的代数和恒等于0
+\end{theorem}
+\leftnote[-40pt]{
+    在上式取和的时候，需要任意指定一个回路的绕行方向,凡支路电压的参考方向与回路的绕行方向一致时，该电压取"+"号;凡支路电压的参考方向和回路的绕行方向不一致时，该电压取"-"号
+}
+\section{电阻电路的等效变换}
+\begin{obje}
+    等效变换是对于结构较为简单的电路变形的过程，我们将会介绍：
+    \begin{enumerate}
+        \item 电阻的串联、并联、混连的变换
+        \item Y形联结与$\Delta$形联结的变换
+        \item 对称性变换
+        \item 电源的等效变换
+    \end{enumerate}
+\end{obje}
+\subsection{电阻的串联和并联}
+对多个电阻进行变换的条件为：
+\begin{itemize}
+    \item 变换前后端点流入流出电流不变
+    \item 变换前后任意两端点的元件特性可以视为不变
+\end{itemize}
+
+\begin{theorem}{电路的串联和并联}
+\begin{itemize}
+    \item \kwd{串联}：等效电阻等于电阻之和
+    \item \kwd{并联}：等效电阻的倒数等于各电阻倒数之和
+\end{itemize}
+\end{theorem}
+\section{电阻的Y形连结和$\displaystyle \Delta$形联结的等效变换}
+\begin{itemize}
+    \item Y型（星型）网络：三个电阻$R_1、R_2、R_3$，接于公共节点与端钮1、2、3之间；
+    \item △型（三角形）网络：三个电阻$R_{12}、R_{23}、R_{31}$，分别接于端钮1-2、2-3、3-1之间。
+\end{itemize}
+\begin{theorem}{$\Delta \to Y$变换公式}
+    \[
+    \begin{cases}
+R_1 = \displaystyle\frac{R_{12} \cdot R_{31}}{R_{12} + R_{23} + R_{31}} \\
+\\
+R_2 = \displaystyle\frac{R_{12} \cdot R_{23}}{R_{12} + R_{23} + R_{31}} \\\\
+R_3 = \displaystyle\frac{R_{23} \cdot R_{31}}{R_{12} + R_{23} + R_{31}}
+\end{cases}
+    \]
+\end{theorem}
+
+
+\begin{theorem}{$Y \to \Delta $变换公式}
+    \[
+\begin{cases}
+R_{12} = \displaystyle\frac{R_1R_2 + R_2R_3 + R_3R_1}{R_3} \\\\
+R_{23} = \displaystyle\frac{R_1R_2 + R_2R_3 + R_3R_1}{R_1} \\\\
+R_{31} = \displaystyle\frac{R_1R_2 + R_2R_3 + R_3R_1}{R_2}
+\end{cases}
+\]
+\end{theorem}
+% Y-△电阻等效变换 精简证明
+
+\subsection{Y型与$\Delta$型电阻等效变换证明}
+\kwd{一、$\Delta$型 $\rightarrow$ Y型 证明}
+1. 计算端间等效电阻：
+   $\triangle$型（串并）：$\displaystyle R_{12(\triangle)}=\frac{R_{12}(R_{23}+R_{31})}{S},\ R_{23(\triangle)}=\frac{R_{23}(R_{12}+R_{31})}{S},\ R_{31(\triangle)}=\frac{R_{31}(R_{12}+R_{23})}{S}$；
+   Y型（串联）：$\displaystyle R_{12(Y)}=R_1+R_2,\ R_{23(Y)}=R_2+R_3,\ R_{31(Y)}=R_3+R_1$。
+
+2. 等效条件列方程，三式相加得：
+   $$2(R_1+R_2+R_3)=\frac{2(R_{12}R_{23}+R_{23}R_{31}+R_{31}R_{12})}{S} \implies R_1+R_2+R_3=\frac{\sum R_{ij}R_{jk}}{S}.$$
+
+3. 上式分别减$R_{23(Y)}、R_{31(Y)}、R_{12(Y)}$，得：
+   $$\boldsymbol{R_1=\frac{R_{12}R_{31}}{S},\ R_2=\frac{R_{12}R_{23}}{S},\ R_3=\frac{R_{23}R_{31}}{S}}.$$
+
+\kwd{二、Y型 $\rightarrow$ $\Delta$型 证明}
+1. 由$\Delta$→Y结论，令$\displaystyle \Sigma=R_1R_2+R_2R_3+R_3R_1$，易推得：$\displaystyle \Sigma=\frac{R_{12}R_{23}R_{31}}{S}$。
+
+2. 对$\Delta$→Y公式变形反解：
+   如$\displaystyle R_1R_2=\frac{R_{12}^2R_{23}R_{31}}{S^2}$，代入$\displaystyle \Sigma$得$\displaystyle R_1R_2=\frac{R_{12}\cdot\Sigma}{S}$，结合$\displaystyle R_3=\frac{R_{23}R_{31}}{S}$，化简得：
+   $$\boldsymbol{R_{12}=\frac{\Sigma}{R_3}}.$$
+
+3. 对称推导其余电阻，最终得：
+   $$\boldsymbol{R_{23}=\frac{\Sigma}{R_1},\ R_{31}=\frac{\Sigma}{R_2}}.$$
+
+\section{电压源和电流源的串联和并联}
+
+\begin{theorem}{电压源的串联}
+    等效电压源的激励电压等于各个电压源激励电压之和
+\end{theorem}
+
+\begin{theorem}{电流源的串联}
+    等效电流源的激励电流等于各个电流源激励电流之和
+\end{theorem}
+在后文的叠加原理中，我们能看见一种更方便处理电源串并联的办法
+\subsection{对称性变换}
+在电路中，凡是连接在等电势节点即支路交点之间的任何电阻或者导线由于无电流通过，都可以去掉
+\begin{theorem}{对称性原理}
+    一个电阻网络对于端点连线所形成的轴镜像对称，那么电阻网络上对称的两点电势相等
+\end{theorem}
+\begin{example}{狭义惠斯通电桥}
+    惠斯通电桥为四臂电阻网络（$R_1,R_2,R_3,R_4$）、电源$E$、检流计$G$组成的平衡电路，\kwd{等阻条件}为$\boldsymbol{R_1=R_2=R_3=R_4=R}$，此时电桥严格平衡。
+\begin{solution}
+    观察可以发现，上下两节点对称
+\end{solution}
+\end{example}
+
+\end{document}
+
+
