@@ -1,0 +1,192 @@
+\ProvidesPackage{zillstyle}
+
+% --- 1. 基础宏包 ---
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{changepage} 
+\usepackage{multicol}   
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{newtxtext,newtxmath} 
+\usepackage{booktabs} 
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{bm} 
+\usepackage{siunitx}
+\usepackage{ragged2e}
+
+\tcbuselibrary{skins, breakable}
+
+% --- 2. 移除颜色，定义灰度体系 ---
+\definecolor{boxGray}{RGB}{245, 245, 245}     % 浅灰背景
+\definecolor{mainBlack}{RGB}{0, 0, 0}         % 纯黑
+
+% --- 3. 标准页面布局 (无边栏) ---
+\geometry{
+    paperwidth=8.5in, 
+    paperheight=11in, 
+    left=1in,      
+    right=1in, 
+    top=1in, 
+    bottom=1in
+}
+\setstretch{1.2}
+
+% --- 4. 计数器设置 ---
+\newcounter{defn}[section]
+\renewcommand{\thedefn}{\thesection.\arabic{defn}}
+\newcounter{thrm}[section]
+\renewcommand{\thethrm}{\thesection.\arabic{thrm}}
+\newcounter{exmp}[section]
+\renewcommand{\theexmp}{\arabic{exmp}}
+
+% --- 5. Definition & Theorem (标签移至盒头) ---
+\newtcolorbox[use counter=defn]{definition}[1]{
+    enhanced, breakable,
+    colback=boxGray, colframe=mainBlack,
+    boxrule=0.8pt, arc=0pt,
+    left=3mm, right=3mm, top=4mm,
+    fontupper=\setstretch{1.15},
+    title={DEFINITION \thedefn \quad #1},
+    fonttitle=\bfseries\sffamily,
+    coltitle=white, colbacktitle=mainBlack,
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={sharp corners},
+    before skip=20pt, after skip=20pt
+}
+
+\newtcolorbox[use counter=thrm]{theorem}[1]{
+    enhanced, breakable,
+    colback=white, colframe=mainBlack,
+    boxrule=1pt, arc=0pt,
+    left=3mm, right=3mm, top=4mm,
+    fontupper=\setstretch{1.15},
+    title={THEOREM \thethrm \quad #1},
+    fonttitle=\bfseries\sffamily,
+    coltitle=white, colbacktitle=mainBlack,
+    attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxed title style={sharp corners},
+    before skip=20pt, after skip=20pt
+}
+
+% --- 6. Example & Solution (黑白简化) ---
+\newsavebox{\zillbox}
+\newenvironment{example}[1][]{
+    \refstepcounter{exmp}
+    \par\vspace{20pt}
+    \noindent
+    \begingroup
+    \sbox{\zillbox}{\colorbox{mainBlack}{\strut\color{white}\bfseries\sffamily EXAMPLE \theexmp}}
+    \usebox{\zillbox}\hspace{1em} {\large\bfseries\sffamily #1}
+    \endgroup\par\vspace{8pt}
+}{
+    \par\vspace{8pt}
+    \noindent{\color{mainBlack}\rule{\linewidth}{1.2pt}} 
+    \vspace{15pt}
+}
+
+\newenvironment{solution}{
+    \par\medskip
+    \noindent\textbf{解}\quad 
+}{
+    \hfill\ensuremath{\blacksquare} % 结尾黑方块
+    \par
+}
+
+% --- 7. 性质、目标、警告 (全部改灰/黑) ---
+\newtcolorbox{properties}{
+    enhanced, breakable,
+    colback=white, colframe=mainBlack,
+    arc=0pt, boxrule=0.8pt,
+    fonttitle=\bfseries\sffamily, coltitle=mainBlack,
+    title=PROPERTIES, attach title to upper,
+    after title={\vspace{0.3em}\par\hrule height 0.8pt \vspace{0.5em}},
+    left=3mm, right=3mm, before skip=15pt, after skip=15pt
+}
+
+\newtcolorbox{Obje}{
+    enhanced, breakable,
+    colback=boxGray, colframe=mainBlack,
+    arc=0pt, boxrule=0pt, leftrule=3pt,
+    before upper={\term{CHAPTER OBJECTIVES}\vspace{0.5em}\par},
+    left=4mm, before skip=15pt, after skip=15pt
+}
+
+\newtcolorbox{caution}[1]{
+    enhanced, breakable, colback=white, colframe=mainBlack,
+    boxrule=0.5pt, arc=0pt, left=8mm,
+    before upper={\textbf{注意：#1}\par\medskip},
+    overlay={\node[anchor=north west] at ([xshift=2mm, yshift=-2mm]frame.north west) {\scalebox{1.2}{!}};},
+    before skip=12pt, after skip=12pt
+}
+
+% --- 8. 左栏工具适配 (现在直接显示在正文中) ---
+% leftnote 变为带左边线的引用块
+\newcommand{\leftnote}[2][0pt]{
+  \begin{tcolorbox}[enhanced, breakable, colback=boxGray, colframe=mainBlack!30, 
+    boxrule=0pt, leftrule=2pt, sharp corners, 
+    left=3mm, right=3mm, top=2mm, bottom=2mm, before skip=10pt, after skip=10pt]
+    \small\itshape #2
+  \end{tcolorbox}
+}
+
+% 图片和 TikZ 变为标准的居中插入
+\newcommand{\leftfig}[3][0pt]{
+  \begin{center}
+    \includegraphics[width=0.6\linewidth]{#2}
+    \captionof{figure}{#3}
+  \end{center}
+}
+
+\newcommand{\lefttikz}[3][0pt]{
+  \begin{center}
+    #2
+    \captionof{figure}{#3}
+  \end{center}
+}
+
+% --- 9. 习题环境 (铺满全宽) ---
+\newlist{exerciseList}{enumerate}{2}
+\setlist[exerciseList,1]{label=\bfseries\arabic*., leftmargin=2em, itemsep=1ex}
+
+\newenvironment{exercises}[1]{
+    \par\vspace{20pt}
+    \noindent{\Large\bfseries EXERCISES #1} 
+    \vspace{2pt}\hrule height 1.5pt\vspace{10pt}
+    \begin{multicols}{2}
+}{
+    \end{multicols}
+}
+
+% --- 10. 标题格式 (黑白简洁版) ---
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chapternamename\ \thechapter}{10pt}{\titlerule[2pt]\vspace{1ex}}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+\titleformat{\subsection}{\normalfont\large\bfseries}{\rule[0.1ex]{0.6em}{0.6em}}{0.5em}{}
+
+% --- 11. 宏保持一致 ---
+\newcommand{\kwd}[1]{\textbf{#1}}
+\newcommand{\term}[1]{\textbf{\textsf{#1}}}
+\newcommand{\meaninglabel}{\textbf{物理意义：}}
+\newcommand{\notelabel}{\textbf{注意：}}
+\newcommand{\keypoint}[1]{\textbf{#1}}
+
+% --- 12. 数学宏保持一致 ---
+\newcommand{\vecv}[2]{( #1, #2 )}
+\newcommand{\vecvv}[3]{( #1, #2, #3 )}
+\newcommand{\colv}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}
+\newcommand{\colvt}[2]{\begin{bmatrix} #1 & #2 \end{bmatrix}^T}
+\newcommand{\colvv}[3]{\begin{bmatrix} #1 \\ #2 \\ #3 \end{bmatrix}}
+\newcommand{\colvvt}[3]{\begin{bmatrix} #1 & #2 & #3 \end{bmatrix}^T}
+\renewcommand{\v}[1]{\bm{#1}}
+
+\sisetup{separate-uncertainty = true, inter-unit-product = \ensuremath{\cdot}}
+\renewcommand{\arraystretch}{1.3}
+
+\endinput
