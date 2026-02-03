@@ -271,5 +271,28 @@
 
 % 结论/重点文字
 \newcommand{\keypoint}[1]{\begingroup\bfseries\color{zillBlue}#1\endgroup}
+% --- 12. 简易数学表达 ---
+% --- 矩阵简写宏 ---
+
+% 1. 2x2 矩阵: \matII{a}{b}{c}{d}
+\newcommand{\matII}[4]{
+    \begin{bmatrix} #1 & #2 \\ #3 & #4 \end{bmatrix}
+}
+
+% 2. 3x3 矩阵: \matIII{...}
+\newcommand{\matIII}[9]{
+    \begin{bmatrix} 
+        #1 & #2 & #3 \\ 
+        #4 & #5 & #6 \\ 
+        #7 & #8 & #9 
+    \end{bmatrix}
+}
+
+% 3. 列向量简写 (2维与3维)
+\newcommand{\colv}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}
+\newcommand{\colvt}[2]{\begin{bmatrix} #1 & #2 \end{bmatrix}^T}
+\newcommand{\colvv}[3]{\begin{bmatrix} #1 \\ #2 \\ #3 \end{bmatrix}}
+\newcommand{\colvvt}[3]{\begin{bmatrix} #1 & #2&#3 \end{bmatrix}^T}
+
 
 \endinput
